@@ -1,0 +1,12 @@
+Rule ID,Resource ID,Compliance,Exception Reason,Rule Level,Rule Info
+"AwsSolutions-S1","MemberStack/S3BucketForRedShiftAuditLogging/Resource","Suppressed","Logs bucket does not require logging configuration","Error","The S3 Bucket has server access logs disabled."
+"AwsSolutions-S2","MemberStack/S3BucketForRedShiftAuditLogging/Resource","Compliant","N/A","Error","The S3 Bucket does not have public access restricted and blocked."
+"AwsSolutions-S3","MemberStack/S3BucketForRedShiftAuditLogging/Resource","Compliant","N/A","Error","The S3 Bucket does not default encryption enabled."
+"AwsSolutions-S5","MemberStack/S3BucketForRedShiftAuditLogging/Resource","Compliant","N/A","Error","The S3 static website bucket either has an open world bucket policy or does not use a CloudFront Origin Access Identity (OAI) in the bucket policy for limited getObject and/or putObject permissions."
+"AwsSolutions-S10","MemberStack/S3BucketForRedShiftAuditLogging/Resource","Suppressed","Secure transport requirement is redundant for this use case","Error","The S3 Bucket or bucket policy does not require requests to use SSL."
+"AwsSolutions-S10","MemberStack/S3BucketForRedShiftAuditLoggingBucketPolicy/Resource","Suppressed","Secure transport requirement is redundant for this use case","Error","The S3 Bucket or bucket policy does not require requests to use SSL."
+"AwsSolutions-KMS5","MemberStack/SHARR Remediation Key/Resource","Compliant","N/A","Error","The KMS Symmetric key does not have automatic key rotation enabled."
+"AwsSolutions-IAM5","MemberStack/RunbookProvider/Policy/Resource","Suppressed","Resource * is required in order to manage arbitrary SSM documents","Error","The IAM entity contains wildcard permissions and does not have a cdk_nag rule suppression with evidence for those permission."
+"AwsSolutions-IAM4","MemberStack/RunbookProvider/Role/Resource","Compliant","N/A","Error","The IAM user, role, or group uses AWS managed policies."
+"AwsSolutions-IAM5","MemberStack/RunbookProvider/Role/Resource","Compliant","N/A","Error","The IAM entity contains wildcard permissions and does not have a cdk_nag rule suppression with evidence for those permission."
+"AwsSolutions-L1","MemberStack/RunbookProvider/Function/Resource","Non-Compliant","N/A","Error","The non-container Lambda function is not configured to use the latest runtime version. ."

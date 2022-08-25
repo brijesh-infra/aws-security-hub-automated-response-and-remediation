@@ -1,0 +1,2766 @@
+Description: (SO0111P) AWS Security Hub Automated Response & Remediation CIS 1.2.0 Compliance Pack - Admin Account, v1.50.mybuild
+AWSTemplateFormatVersion: "2010-09-09"
+Parameters:
+  SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter:
+    Type: AWS::SSM::Parameter::Value<String>
+    Default: /Solutions/SO0111/OrchestratorArn
+  CIS13AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for CIS 1.3
+  CIS14AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for CIS 1.4
+  CIS15AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for CIS 1.5
+  CIS16AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for CIS 1.6
+  CIS17AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for CIS 1.7
+  CIS18AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for CIS 1.8
+  CIS19AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for CIS 1.9
+  CIS110AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for CIS 1.10
+  CIS111AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for CIS 1.11
+  CIS21AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for CIS 2.1
+  CIS22AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for CIS 2.2
+  CIS23AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for CIS 2.3
+  CIS24AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for CIS 2.4
+  CIS25AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for CIS 2.5
+  CIS26AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for CIS 2.6
+  CIS27AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for CIS 2.7
+  CIS28AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for CIS 2.8
+  CIS29AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for CIS 2.9
+  CIS31AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for CIS 3.1
+  CIS32AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for CIS 3.2
+  CIS33AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for CIS 3.3
+  CIS34AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for CIS 3.4
+  CIS35AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for CIS 3.5
+  CIS36AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for CIS 3.6
+  CIS37AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for CIS 3.7
+  CIS38AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for CIS 3.8
+  CIS39AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for CIS 3.9
+  CIS310AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for CIS 3.10
+  CIS311AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for CIS 3.11
+  CIS312AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for CIS 3.12
+  CIS313AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for CIS 3.13
+  CIS314AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for CIS 3.14
+  CIS41AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for CIS 4.1
+  CIS42AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for CIS 4.2
+  CIS43AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for CIS 4.3
+Resources:
+  StandardShortName7DDF6BE6:
+    Type: AWS::SSM::Parameter
+    Properties:
+      Type: String
+      Value: CIS
+      Description: Provides a short (1-12) character abbreviation for the standard.
+      Name: /Solutions/SO0111/cis-aws-foundations-benchmark/shortname
+    Metadata:
+      aws:cdk:path: CIS120Stack/StandardShortName/Resource
+  StandardVersionCB2C6951:
+    Type: AWS::SSM::Parameter
+    Properties:
+      Type: String
+      Value: enabled
+      Description: This parameter controls whether the SHARR step function will process findings for this version of the standard.
+      Name: /Solutions/SO0111/cis-aws-foundations-benchmark/1.2.0/status
+    Metadata:
+      aws:cdk:path: CIS120Stack/StandardVersion/Resource
+  CIS13EventsRuleRoleFEBE574F:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 1.3/EventsRuleRole/Resource
+  CIS13EventsRuleRoleDefaultPolicy2E3E119B:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: CIS13EventsRuleRoleDefaultPolicy2E3E119B
+      Roles:
+        - Ref: CIS13EventsRuleRoleFEBE574F
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 1.3/EventsRuleRole/DefaultPolicy/Resource
+  CIS13AutoEventRuleC6C84C81:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate CIS 1.3 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - Fn::Join:
+                  - ""
+                  - - "arn:"
+                    - Ref: AWS::Partition
+                    - :securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0/rule/1.3
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: CIS_1.3_AutoTrigger
+      State:
+        Ref: CIS13AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - CIS13EventsRuleRoleFEBE574F
+              - Arn
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 1.3/AutoEventRule/Resource
+  CIS14EventsRuleRole1958102C:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 1.4/EventsRuleRole/Resource
+  CIS14EventsRuleRoleDefaultPolicyC4391BE9:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: CIS14EventsRuleRoleDefaultPolicyC4391BE9
+      Roles:
+        - Ref: CIS14EventsRuleRole1958102C
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 1.4/EventsRuleRole/DefaultPolicy/Resource
+  CIS14AutoEventRule8C8AD44B:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate CIS 1.4 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - Fn::Join:
+                  - ""
+                  - - "arn:"
+                    - Ref: AWS::Partition
+                    - :securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0/rule/1.4
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: CIS_1.4_AutoTrigger
+      State:
+        Ref: CIS14AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - CIS14EventsRuleRole1958102C
+              - Arn
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 1.4/AutoEventRule/Resource
+  CIS15EventsRuleRole080D88A6:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 1.5/EventsRuleRole/Resource
+  CIS15EventsRuleRoleDefaultPolicy39339B23:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: CIS15EventsRuleRoleDefaultPolicy39339B23
+      Roles:
+        - Ref: CIS15EventsRuleRole080D88A6
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 1.5/EventsRuleRole/DefaultPolicy/Resource
+  CIS15AutoEventRule3E16ABC7:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate CIS 1.5 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - Fn::Join:
+                  - ""
+                  - - "arn:"
+                    - Ref: AWS::Partition
+                    - :securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0/rule/1.5
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: CIS_1.5_AutoTrigger
+      State:
+        Ref: CIS15AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - CIS15EventsRuleRole080D88A6
+              - Arn
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 1.5/AutoEventRule/Resource
+  RemapCIS1623732A83:
+    Type: AWS::SSM::Parameter
+    Properties:
+      Type: String
+      Value: "1.5"
+      Description: Remap the CIS 1.6 finding to CIS 1.5 remediation
+      Name: /Solutions/SO0111/CIS/1.2.0/1.6/remap
+    Metadata:
+      aws:cdk:path: CIS120Stack/Remap CIS 1.6/Resource
+  CIS16EventsRuleRole44F30545:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 1.6/EventsRuleRole/Resource
+  CIS16EventsRuleRoleDefaultPolicy73A3F386:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: CIS16EventsRuleRoleDefaultPolicy73A3F386
+      Roles:
+        - Ref: CIS16EventsRuleRole44F30545
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 1.6/EventsRuleRole/DefaultPolicy/Resource
+  CIS16AutoEventRule0C762864:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate CIS 1.6 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - Fn::Join:
+                  - ""
+                  - - "arn:"
+                    - Ref: AWS::Partition
+                    - :securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0/rule/1.6
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: CIS_1.6_AutoTrigger
+      State:
+        Ref: CIS16AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - CIS16EventsRuleRole44F30545
+              - Arn
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 1.6/AutoEventRule/Resource
+  RemapCIS17365F9D71:
+    Type: AWS::SSM::Parameter
+    Properties:
+      Type: String
+      Value: "1.5"
+      Description: Remap the CIS 1.7 finding to CIS 1.5 remediation
+      Name: /Solutions/SO0111/CIS/1.2.0/1.7/remap
+    Metadata:
+      aws:cdk:path: CIS120Stack/Remap CIS 1.7/Resource
+  CIS17EventsRuleRole26FBFD76:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 1.7/EventsRuleRole/Resource
+  CIS17EventsRuleRoleDefaultPolicy1195CA31:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: CIS17EventsRuleRoleDefaultPolicy1195CA31
+      Roles:
+        - Ref: CIS17EventsRuleRole26FBFD76
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 1.7/EventsRuleRole/DefaultPolicy/Resource
+  CIS17AutoEventRule274CDE2B:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate CIS 1.7 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - Fn::Join:
+                  - ""
+                  - - "arn:"
+                    - Ref: AWS::Partition
+                    - :securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0/rule/1.7
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: CIS_1.7_AutoTrigger
+      State:
+        Ref: CIS17AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - CIS17EventsRuleRole26FBFD76
+              - Arn
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 1.7/AutoEventRule/Resource
+  RemapCIS187A00C0E3:
+    Type: AWS::SSM::Parameter
+    Properties:
+      Type: String
+      Value: "1.5"
+      Description: Remap the CIS 1.8 finding to CIS 1.5 remediation
+      Name: /Solutions/SO0111/CIS/1.2.0/1.8/remap
+    Metadata:
+      aws:cdk:path: CIS120Stack/Remap CIS 1.8/Resource
+  CIS18EventsRuleRoleC1B4B61A:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 1.8/EventsRuleRole/Resource
+  CIS18EventsRuleRoleDefaultPolicy40AE3E6D:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: CIS18EventsRuleRoleDefaultPolicy40AE3E6D
+      Roles:
+        - Ref: CIS18EventsRuleRoleC1B4B61A
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 1.8/EventsRuleRole/DefaultPolicy/Resource
+  CIS18AutoEventRule30B4F305:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate CIS 1.8 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - Fn::Join:
+                  - ""
+                  - - "arn:"
+                    - Ref: AWS::Partition
+                    - :securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0/rule/1.8
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: CIS_1.8_AutoTrigger
+      State:
+        Ref: CIS18AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - CIS18EventsRuleRoleC1B4B61A
+              - Arn
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 1.8/AutoEventRule/Resource
+  RemapCIS19C15D1B3E:
+    Type: AWS::SSM::Parameter
+    Properties:
+      Type: String
+      Value: "1.5"
+      Description: Remap the CIS 1.9 finding to CIS 1.5 remediation
+      Name: /Solutions/SO0111/CIS/1.2.0/1.9/remap
+    Metadata:
+      aws:cdk:path: CIS120Stack/Remap CIS 1.9/Resource
+  CIS19EventsRuleRole00BFFD04:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 1.9/EventsRuleRole/Resource
+  CIS19EventsRuleRoleDefaultPolicy54A7F018:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: CIS19EventsRuleRoleDefaultPolicy54A7F018
+      Roles:
+        - Ref: CIS19EventsRuleRole00BFFD04
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 1.9/EventsRuleRole/DefaultPolicy/Resource
+  CIS19AutoEventRule04CFD704:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate CIS 1.9 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - Fn::Join:
+                  - ""
+                  - - "arn:"
+                    - Ref: AWS::Partition
+                    - :securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0/rule/1.9
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: CIS_1.9_AutoTrigger
+      State:
+        Ref: CIS19AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - CIS19EventsRuleRole00BFFD04
+              - Arn
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 1.9/AutoEventRule/Resource
+  RemapCIS110F4215257:
+    Type: AWS::SSM::Parameter
+    Properties:
+      Type: String
+      Value: "1.5"
+      Description: Remap the CIS 1.10 finding to CIS 1.5 remediation
+      Name: /Solutions/SO0111/CIS/1.2.0/1.10/remap
+    Metadata:
+      aws:cdk:path: CIS120Stack/Remap CIS 1.10/Resource
+  CIS110EventsRuleRoleC7F4CDFA:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 1.10/EventsRuleRole/Resource
+  CIS110EventsRuleRoleDefaultPolicyAA09D5AE:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: CIS110EventsRuleRoleDefaultPolicyAA09D5AE
+      Roles:
+        - Ref: CIS110EventsRuleRoleC7F4CDFA
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 1.10/EventsRuleRole/DefaultPolicy/Resource
+  CIS110AutoEventRuleEAE3ADBE:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate CIS 1.10 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - Fn::Join:
+                  - ""
+                  - - "arn:"
+                    - Ref: AWS::Partition
+                    - :securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0/rule/1.10
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: CIS_1.10_AutoTrigger
+      State:
+        Ref: CIS110AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - CIS110EventsRuleRoleC7F4CDFA
+              - Arn
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 1.10/AutoEventRule/Resource
+  RemapCIS1119C659F35:
+    Type: AWS::SSM::Parameter
+    Properties:
+      Type: String
+      Value: "1.5"
+      Description: Remap the CIS 1.11 finding to CIS 1.5 remediation
+      Name: /Solutions/SO0111/CIS/1.2.0/1.11/remap
+    Metadata:
+      aws:cdk:path: CIS120Stack/Remap CIS 1.11/Resource
+  CIS111EventsRuleRole2722FC64:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 1.11/EventsRuleRole/Resource
+  CIS111EventsRuleRoleDefaultPolicy5D98E377:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: CIS111EventsRuleRoleDefaultPolicy5D98E377
+      Roles:
+        - Ref: CIS111EventsRuleRole2722FC64
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 1.11/EventsRuleRole/DefaultPolicy/Resource
+  CIS111AutoEventRule85C789B6:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate CIS 1.11 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - Fn::Join:
+                  - ""
+                  - - "arn:"
+                    - Ref: AWS::Partition
+                    - :securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0/rule/1.11
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: CIS_1.11_AutoTrigger
+      State:
+        Ref: CIS111AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - CIS111EventsRuleRole2722FC64
+              - Arn
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 1.11/AutoEventRule/Resource
+  CIS21EventsRuleRole10329613:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 2.1/EventsRuleRole/Resource
+  CIS21EventsRuleRoleDefaultPolicy008A5ED9:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: CIS21EventsRuleRoleDefaultPolicy008A5ED9
+      Roles:
+        - Ref: CIS21EventsRuleRole10329613
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 2.1/EventsRuleRole/DefaultPolicy/Resource
+  CIS21AutoEventRuleAF021A8D:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate CIS 2.1 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - Fn::Join:
+                  - ""
+                  - - "arn:"
+                    - Ref: AWS::Partition
+                    - :securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0/rule/2.1
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: CIS_2.1_AutoTrigger
+      State:
+        Ref: CIS21AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - CIS21EventsRuleRole10329613
+              - Arn
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 2.1/AutoEventRule/Resource
+  CIS22EventsRuleRoleCC5320F7:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 2.2/EventsRuleRole/Resource
+  CIS22EventsRuleRoleDefaultPolicy3CA9DA8B:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: CIS22EventsRuleRoleDefaultPolicy3CA9DA8B
+      Roles:
+        - Ref: CIS22EventsRuleRoleCC5320F7
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 2.2/EventsRuleRole/DefaultPolicy/Resource
+  CIS22AutoEventRule87AD1E86:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate CIS 2.2 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - Fn::Join:
+                  - ""
+                  - - "arn:"
+                    - Ref: AWS::Partition
+                    - :securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0/rule/2.2
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: CIS_2.2_AutoTrigger
+      State:
+        Ref: CIS22AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - CIS22EventsRuleRoleCC5320F7
+              - Arn
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 2.2/AutoEventRule/Resource
+  CIS23EventsRuleRole5A7E3E20:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 2.3/EventsRuleRole/Resource
+  CIS23EventsRuleRoleDefaultPolicyFDB42ABA:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: CIS23EventsRuleRoleDefaultPolicyFDB42ABA
+      Roles:
+        - Ref: CIS23EventsRuleRole5A7E3E20
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 2.3/EventsRuleRole/DefaultPolicy/Resource
+  CIS23AutoEventRule99995B40:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate CIS 2.3 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - Fn::Join:
+                  - ""
+                  - - "arn:"
+                    - Ref: AWS::Partition
+                    - :securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0/rule/2.3
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: CIS_2.3_AutoTrigger
+      State:
+        Ref: CIS23AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - CIS23EventsRuleRole5A7E3E20
+              - Arn
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 2.3/AutoEventRule/Resource
+  CIS24EventsRuleRoleD08FE385:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 2.4/EventsRuleRole/Resource
+  CIS24EventsRuleRoleDefaultPolicyF88F6114:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: CIS24EventsRuleRoleDefaultPolicyF88F6114
+      Roles:
+        - Ref: CIS24EventsRuleRoleD08FE385
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 2.4/EventsRuleRole/DefaultPolicy/Resource
+  CIS24AutoEventRule25C6888C:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate CIS 2.4 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - Fn::Join:
+                  - ""
+                  - - "arn:"
+                    - Ref: AWS::Partition
+                    - :securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0/rule/2.4
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: CIS_2.4_AutoTrigger
+      State:
+        Ref: CIS24AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - CIS24EventsRuleRoleD08FE385
+              - Arn
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 2.4/AutoEventRule/Resource
+  CIS25EventsRuleRole647B9616:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 2.5/EventsRuleRole/Resource
+  CIS25EventsRuleRoleDefaultPolicyD052E3BE:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: CIS25EventsRuleRoleDefaultPolicyD052E3BE
+      Roles:
+        - Ref: CIS25EventsRuleRole647B9616
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 2.5/EventsRuleRole/DefaultPolicy/Resource
+  CIS25AutoEventRule816D27C3:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate CIS 2.5 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - Fn::Join:
+                  - ""
+                  - - "arn:"
+                    - Ref: AWS::Partition
+                    - :securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0/rule/2.5
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: CIS_2.5_AutoTrigger
+      State:
+        Ref: CIS25AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - CIS25EventsRuleRole647B9616
+              - Arn
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 2.5/AutoEventRule/Resource
+  CIS26EventsRuleRole4C0DD0C8:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 2.6/EventsRuleRole/Resource
+  CIS26EventsRuleRoleDefaultPolicy8F0D8DF6:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: CIS26EventsRuleRoleDefaultPolicy8F0D8DF6
+      Roles:
+        - Ref: CIS26EventsRuleRole4C0DD0C8
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 2.6/EventsRuleRole/DefaultPolicy/Resource
+  CIS26AutoEventRule860C74A1:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate CIS 2.6 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - Fn::Join:
+                  - ""
+                  - - "arn:"
+                    - Ref: AWS::Partition
+                    - :securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0/rule/2.6
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: CIS_2.6_AutoTrigger
+      State:
+        Ref: CIS26AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - CIS26EventsRuleRole4C0DD0C8
+              - Arn
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 2.6/AutoEventRule/Resource
+  CIS27EventsRuleRoleF9F7CF32:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 2.7/EventsRuleRole/Resource
+  CIS27EventsRuleRoleDefaultPolicy7E437D65:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: CIS27EventsRuleRoleDefaultPolicy7E437D65
+      Roles:
+        - Ref: CIS27EventsRuleRoleF9F7CF32
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 2.7/EventsRuleRole/DefaultPolicy/Resource
+  CIS27AutoEventRule3EC1170A:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate CIS 2.7 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - Fn::Join:
+                  - ""
+                  - - "arn:"
+                    - Ref: AWS::Partition
+                    - :securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0/rule/2.7
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: CIS_2.7_AutoTrigger
+      State:
+        Ref: CIS27AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - CIS27EventsRuleRoleF9F7CF32
+              - Arn
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 2.7/AutoEventRule/Resource
+  CIS28EventsRuleRoleFD9F44C1:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 2.8/EventsRuleRole/Resource
+  CIS28EventsRuleRoleDefaultPolicyCD3F1B2C:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: CIS28EventsRuleRoleDefaultPolicyCD3F1B2C
+      Roles:
+        - Ref: CIS28EventsRuleRoleFD9F44C1
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 2.8/EventsRuleRole/DefaultPolicy/Resource
+  CIS28AutoEventRule6DB10CD1:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate CIS 2.8 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - Fn::Join:
+                  - ""
+                  - - "arn:"
+                    - Ref: AWS::Partition
+                    - :securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0/rule/2.8
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: CIS_2.8_AutoTrigger
+      State:
+        Ref: CIS28AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - CIS28EventsRuleRoleFD9F44C1
+              - Arn
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 2.8/AutoEventRule/Resource
+  CIS29EventsRuleRole2CD1E165:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 2.9/EventsRuleRole/Resource
+  CIS29EventsRuleRoleDefaultPolicy1BF8FC30:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: CIS29EventsRuleRoleDefaultPolicy1BF8FC30
+      Roles:
+        - Ref: CIS29EventsRuleRole2CD1E165
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 2.9/EventsRuleRole/DefaultPolicy/Resource
+  CIS29AutoEventRule01299A7F:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate CIS 2.9 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - Fn::Join:
+                  - ""
+                  - - "arn:"
+                    - Ref: AWS::Partition
+                    - :securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0/rule/2.9
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: CIS_2.9_AutoTrigger
+      State:
+        Ref: CIS29AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - CIS29EventsRuleRole2CD1E165
+              - Arn
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 2.9/AutoEventRule/Resource
+  CIS31EventsRuleRoleCF0244DD:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 3.1/EventsRuleRole/Resource
+  CIS31EventsRuleRoleDefaultPolicy50CEA8AF:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: CIS31EventsRuleRoleDefaultPolicy50CEA8AF
+      Roles:
+        - Ref: CIS31EventsRuleRoleCF0244DD
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 3.1/EventsRuleRole/DefaultPolicy/Resource
+  CIS31AutoEventRule58D4C7F8:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate CIS 3.1 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - Fn::Join:
+                  - ""
+                  - - "arn:"
+                    - Ref: AWS::Partition
+                    - :securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0/rule/3.1
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: CIS_3.1_AutoTrigger
+      State:
+        Ref: CIS31AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - CIS31EventsRuleRoleCF0244DD
+              - Arn
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 3.1/AutoEventRule/Resource
+  RemapCIS32ED3BA1EC:
+    Type: AWS::SSM::Parameter
+    Properties:
+      Type: String
+      Value: "3.1"
+      Description: Remap the CIS 3.2 finding to CIS 3.1 remediation
+      Name: /Solutions/SO0111/CIS/1.2.0/3.2/remap
+    Metadata:
+      aws:cdk:path: CIS120Stack/Remap CIS 3.2/Resource
+  CIS32EventsRuleRoleA34E99B0:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 3.2/EventsRuleRole/Resource
+  CIS32EventsRuleRoleDefaultPolicyE7B1D467:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: CIS32EventsRuleRoleDefaultPolicyE7B1D467
+      Roles:
+        - Ref: CIS32EventsRuleRoleA34E99B0
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 3.2/EventsRuleRole/DefaultPolicy/Resource
+  CIS32AutoEventRuleCD84153D:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate CIS 3.2 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - Fn::Join:
+                  - ""
+                  - - "arn:"
+                    - Ref: AWS::Partition
+                    - :securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0/rule/3.2
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: CIS_3.2_AutoTrigger
+      State:
+        Ref: CIS32AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - CIS32EventsRuleRoleA34E99B0
+              - Arn
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 3.2/AutoEventRule/Resource
+  RemapCIS33FE17FAC6:
+    Type: AWS::SSM::Parameter
+    Properties:
+      Type: String
+      Value: "3.1"
+      Description: Remap the CIS 3.3 finding to CIS 3.1 remediation
+      Name: /Solutions/SO0111/CIS/1.2.0/3.3/remap
+    Metadata:
+      aws:cdk:path: CIS120Stack/Remap CIS 3.3/Resource
+  CIS33EventsRuleRole69177C30:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 3.3/EventsRuleRole/Resource
+  CIS33EventsRuleRoleDefaultPolicyCDFF2C29:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: CIS33EventsRuleRoleDefaultPolicyCDFF2C29
+      Roles:
+        - Ref: CIS33EventsRuleRole69177C30
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 3.3/EventsRuleRole/DefaultPolicy/Resource
+  CIS33AutoEventRule1BC12B90:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate CIS 3.3 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - Fn::Join:
+                  - ""
+                  - - "arn:"
+                    - Ref: AWS::Partition
+                    - :securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0/rule/3.3
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: CIS_3.3_AutoTrigger
+      State:
+        Ref: CIS33AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - CIS33EventsRuleRole69177C30
+              - Arn
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 3.3/AutoEventRule/Resource
+  RemapCIS344C275D76:
+    Type: AWS::SSM::Parameter
+    Properties:
+      Type: String
+      Value: "3.1"
+      Description: Remap the CIS 3.4 finding to CIS 3.1 remediation
+      Name: /Solutions/SO0111/CIS/1.2.0/3.4/remap
+    Metadata:
+      aws:cdk:path: CIS120Stack/Remap CIS 3.4/Resource
+  CIS34EventsRuleRoleF0E632D1:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 3.4/EventsRuleRole/Resource
+  CIS34EventsRuleRoleDefaultPolicy080A038E:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: CIS34EventsRuleRoleDefaultPolicy080A038E
+      Roles:
+        - Ref: CIS34EventsRuleRoleF0E632D1
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 3.4/EventsRuleRole/DefaultPolicy/Resource
+  CIS34AutoEventRule9E409B7E:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate CIS 3.4 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - Fn::Join:
+                  - ""
+                  - - "arn:"
+                    - Ref: AWS::Partition
+                    - :securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0/rule/3.4
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: CIS_3.4_AutoTrigger
+      State:
+        Ref: CIS34AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - CIS34EventsRuleRoleF0E632D1
+              - Arn
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 3.4/AutoEventRule/Resource
+  RemapCIS35791D49E7:
+    Type: AWS::SSM::Parameter
+    Properties:
+      Type: String
+      Value: "3.1"
+      Description: Remap the CIS 3.5 finding to CIS 3.1 remediation
+      Name: /Solutions/SO0111/CIS/1.2.0/3.5/remap
+    Metadata:
+      aws:cdk:path: CIS120Stack/Remap CIS 3.5/Resource
+  CIS35EventsRuleRole3B9D9FEB:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 3.5/EventsRuleRole/Resource
+  CIS35EventsRuleRoleDefaultPolicy48A0C7EB:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: CIS35EventsRuleRoleDefaultPolicy48A0C7EB
+      Roles:
+        - Ref: CIS35EventsRuleRole3B9D9FEB
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 3.5/EventsRuleRole/DefaultPolicy/Resource
+  CIS35AutoEventRuleD227A98B:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate CIS 3.5 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - Fn::Join:
+                  - ""
+                  - - "arn:"
+                    - Ref: AWS::Partition
+                    - :securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0/rule/3.5
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: CIS_3.5_AutoTrigger
+      State:
+        Ref: CIS35AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - CIS35EventsRuleRole3B9D9FEB
+              - Arn
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 3.5/AutoEventRule/Resource
+  RemapCIS36F904C20B:
+    Type: AWS::SSM::Parameter
+    Properties:
+      Type: String
+      Value: "3.1"
+      Description: Remap the CIS 3.6 finding to CIS 3.1 remediation
+      Name: /Solutions/SO0111/CIS/1.2.0/3.6/remap
+    Metadata:
+      aws:cdk:path: CIS120Stack/Remap CIS 3.6/Resource
+  CIS36EventsRuleRole98147F98:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 3.6/EventsRuleRole/Resource
+  CIS36EventsRuleRoleDefaultPolicy6BA98C77:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: CIS36EventsRuleRoleDefaultPolicy6BA98C77
+      Roles:
+        - Ref: CIS36EventsRuleRole98147F98
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 3.6/EventsRuleRole/DefaultPolicy/Resource
+  CIS36AutoEventRuleC8094364:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate CIS 3.6 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - Fn::Join:
+                  - ""
+                  - - "arn:"
+                    - Ref: AWS::Partition
+                    - :securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0/rule/3.6
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: CIS_3.6_AutoTrigger
+      State:
+        Ref: CIS36AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - CIS36EventsRuleRole98147F98
+              - Arn
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 3.6/AutoEventRule/Resource
+  RemapCIS379BE58116:
+    Type: AWS::SSM::Parameter
+    Properties:
+      Type: String
+      Value: "3.1"
+      Description: Remap the CIS 3.7 finding to CIS 3.1 remediation
+      Name: /Solutions/SO0111/CIS/1.2.0/3.7/remap
+    Metadata:
+      aws:cdk:path: CIS120Stack/Remap CIS 3.7/Resource
+  CIS37EventsRuleRoleB04D7E83:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 3.7/EventsRuleRole/Resource
+  CIS37EventsRuleRoleDefaultPolicy6044DF10:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: CIS37EventsRuleRoleDefaultPolicy6044DF10
+      Roles:
+        - Ref: CIS37EventsRuleRoleB04D7E83
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 3.7/EventsRuleRole/DefaultPolicy/Resource
+  CIS37AutoEventRuleBCE7D5F9:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate CIS 3.7 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - Fn::Join:
+                  - ""
+                  - - "arn:"
+                    - Ref: AWS::Partition
+                    - :securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0/rule/3.7
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: CIS_3.7_AutoTrigger
+      State:
+        Ref: CIS37AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - CIS37EventsRuleRoleB04D7E83
+              - Arn
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 3.7/AutoEventRule/Resource
+  RemapCIS381741546F:
+    Type: AWS::SSM::Parameter
+    Properties:
+      Type: String
+      Value: "3.1"
+      Description: Remap the CIS 3.8 finding to CIS 3.1 remediation
+      Name: /Solutions/SO0111/CIS/1.2.0/3.8/remap
+    Metadata:
+      aws:cdk:path: CIS120Stack/Remap CIS 3.8/Resource
+  CIS38EventsRuleRole55E0C0B4:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 3.8/EventsRuleRole/Resource
+  CIS38EventsRuleRoleDefaultPolicy8F2ACC57:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: CIS38EventsRuleRoleDefaultPolicy8F2ACC57
+      Roles:
+        - Ref: CIS38EventsRuleRole55E0C0B4
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 3.8/EventsRuleRole/DefaultPolicy/Resource
+  CIS38AutoEventRule6C03CD35:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate CIS 3.8 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - Fn::Join:
+                  - ""
+                  - - "arn:"
+                    - Ref: AWS::Partition
+                    - :securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0/rule/3.8
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: CIS_3.8_AutoTrigger
+      State:
+        Ref: CIS38AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - CIS38EventsRuleRole55E0C0B4
+              - Arn
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 3.8/AutoEventRule/Resource
+  RemapCIS395690FD00:
+    Type: AWS::SSM::Parameter
+    Properties:
+      Type: String
+      Value: "3.1"
+      Description: Remap the CIS 3.9 finding to CIS 3.1 remediation
+      Name: /Solutions/SO0111/CIS/1.2.0/3.9/remap
+    Metadata:
+      aws:cdk:path: CIS120Stack/Remap CIS 3.9/Resource
+  CIS39EventsRuleRole42AAEB4D:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 3.9/EventsRuleRole/Resource
+  CIS39EventsRuleRoleDefaultPolicyF77FEA10:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: CIS39EventsRuleRoleDefaultPolicyF77FEA10
+      Roles:
+        - Ref: CIS39EventsRuleRole42AAEB4D
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 3.9/EventsRuleRole/DefaultPolicy/Resource
+  CIS39AutoEventRule15B18ADC:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate CIS 3.9 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - Fn::Join:
+                  - ""
+                  - - "arn:"
+                    - Ref: AWS::Partition
+                    - :securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0/rule/3.9
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: CIS_3.9_AutoTrigger
+      State:
+        Ref: CIS39AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - CIS39EventsRuleRole42AAEB4D
+              - Arn
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 3.9/AutoEventRule/Resource
+  RemapCIS310458C5EE8:
+    Type: AWS::SSM::Parameter
+    Properties:
+      Type: String
+      Value: "3.1"
+      Description: Remap the CIS 3.10 finding to CIS 3.1 remediation
+      Name: /Solutions/SO0111/CIS/1.2.0/3.10/remap
+    Metadata:
+      aws:cdk:path: CIS120Stack/Remap CIS 3.10/Resource
+  CIS310EventsRuleRole9AE8BF81:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 3.10/EventsRuleRole/Resource
+  CIS310EventsRuleRoleDefaultPolicy7C80868C:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: CIS310EventsRuleRoleDefaultPolicy7C80868C
+      Roles:
+        - Ref: CIS310EventsRuleRole9AE8BF81
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 3.10/EventsRuleRole/DefaultPolicy/Resource
+  CIS310AutoEventRuleA3ABAD2E:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate CIS 3.10 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - Fn::Join:
+                  - ""
+                  - - "arn:"
+                    - Ref: AWS::Partition
+                    - :securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0/rule/3.10
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: CIS_3.10_AutoTrigger
+      State:
+        Ref: CIS310AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - CIS310EventsRuleRole9AE8BF81
+              - Arn
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 3.10/AutoEventRule/Resource
+  RemapCIS311A361E089:
+    Type: AWS::SSM::Parameter
+    Properties:
+      Type: String
+      Value: "3.1"
+      Description: Remap the CIS 3.11 finding to CIS 3.1 remediation
+      Name: /Solutions/SO0111/CIS/1.2.0/3.11/remap
+    Metadata:
+      aws:cdk:path: CIS120Stack/Remap CIS 3.11/Resource
+  CIS311EventsRuleRole168E04D9:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 3.11/EventsRuleRole/Resource
+  CIS311EventsRuleRoleDefaultPolicy2C769296:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: CIS311EventsRuleRoleDefaultPolicy2C769296
+      Roles:
+        - Ref: CIS311EventsRuleRole168E04D9
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 3.11/EventsRuleRole/DefaultPolicy/Resource
+  CIS311AutoEventRule0DD200FD:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate CIS 3.11 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - Fn::Join:
+                  - ""
+                  - - "arn:"
+                    - Ref: AWS::Partition
+                    - :securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0/rule/3.11
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: CIS_3.11_AutoTrigger
+      State:
+        Ref: CIS311AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - CIS311EventsRuleRole168E04D9
+              - Arn
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 3.11/AutoEventRule/Resource
+  RemapCIS312B6486C73:
+    Type: AWS::SSM::Parameter
+    Properties:
+      Type: String
+      Value: "3.1"
+      Description: Remap the CIS 3.12 finding to CIS 3.1 remediation
+      Name: /Solutions/SO0111/CIS/1.2.0/3.12/remap
+    Metadata:
+      aws:cdk:path: CIS120Stack/Remap CIS 3.12/Resource
+  CIS312EventsRuleRoleC4C4D2E6:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 3.12/EventsRuleRole/Resource
+  CIS312EventsRuleRoleDefaultPolicyE5C7AA00:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: CIS312EventsRuleRoleDefaultPolicyE5C7AA00
+      Roles:
+        - Ref: CIS312EventsRuleRoleC4C4D2E6
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 3.12/EventsRuleRole/DefaultPolicy/Resource
+  CIS312AutoEventRuleAA406CF2:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate CIS 3.12 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - Fn::Join:
+                  - ""
+                  - - "arn:"
+                    - Ref: AWS::Partition
+                    - :securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0/rule/3.12
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: CIS_3.12_AutoTrigger
+      State:
+        Ref: CIS312AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - CIS312EventsRuleRoleC4C4D2E6
+              - Arn
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 3.12/AutoEventRule/Resource
+  RemapCIS3138FD383A0:
+    Type: AWS::SSM::Parameter
+    Properties:
+      Type: String
+      Value: "3.1"
+      Description: Remap the CIS 3.13 finding to CIS 3.1 remediation
+      Name: /Solutions/SO0111/CIS/1.2.0/3.13/remap
+    Metadata:
+      aws:cdk:path: CIS120Stack/Remap CIS 3.13/Resource
+  CIS313EventsRuleRole654133AB:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 3.13/EventsRuleRole/Resource
+  CIS313EventsRuleRoleDefaultPolicy028CDC83:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: CIS313EventsRuleRoleDefaultPolicy028CDC83
+      Roles:
+        - Ref: CIS313EventsRuleRole654133AB
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 3.13/EventsRuleRole/DefaultPolicy/Resource
+  CIS313AutoEventRuleB116C663:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate CIS 3.13 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - Fn::Join:
+                  - ""
+                  - - "arn:"
+                    - Ref: AWS::Partition
+                    - :securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0/rule/3.13
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: CIS_3.13_AutoTrigger
+      State:
+        Ref: CIS313AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - CIS313EventsRuleRole654133AB
+              - Arn
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 3.13/AutoEventRule/Resource
+  RemapCIS31473339CAD:
+    Type: AWS::SSM::Parameter
+    Properties:
+      Type: String
+      Value: "3.1"
+      Description: Remap the CIS 3.14 finding to CIS 3.1 remediation
+      Name: /Solutions/SO0111/CIS/1.2.0/3.14/remap
+    Metadata:
+      aws:cdk:path: CIS120Stack/Remap CIS 3.14/Resource
+  CIS314EventsRuleRole6FD03FF7:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 3.14/EventsRuleRole/Resource
+  CIS314EventsRuleRoleDefaultPolicyE72CA388:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: CIS314EventsRuleRoleDefaultPolicyE72CA388
+      Roles:
+        - Ref: CIS314EventsRuleRole6FD03FF7
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 3.14/EventsRuleRole/DefaultPolicy/Resource
+  CIS314AutoEventRule581FF9D3:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate CIS 3.14 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - Fn::Join:
+                  - ""
+                  - - "arn:"
+                    - Ref: AWS::Partition
+                    - :securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0/rule/3.14
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: CIS_3.14_AutoTrigger
+      State:
+        Ref: CIS314AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - CIS314EventsRuleRole6FD03FF7
+              - Arn
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 3.14/AutoEventRule/Resource
+  CIS41EventsRuleRoleAFBA33A3:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 4.1/EventsRuleRole/Resource
+  CIS41EventsRuleRoleDefaultPolicy9D41E873:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: CIS41EventsRuleRoleDefaultPolicy9D41E873
+      Roles:
+        - Ref: CIS41EventsRuleRoleAFBA33A3
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 4.1/EventsRuleRole/DefaultPolicy/Resource
+  CIS41AutoEventRuleABBCCC9F:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate CIS 4.1 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - Fn::Join:
+                  - ""
+                  - - "arn:"
+                    - Ref: AWS::Partition
+                    - :securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0/rule/4.1
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: CIS_4.1_AutoTrigger
+      State:
+        Ref: CIS41AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - CIS41EventsRuleRoleAFBA33A3
+              - Arn
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 4.1/AutoEventRule/Resource
+  RemapCIS4245EB49A0:
+    Type: AWS::SSM::Parameter
+    Properties:
+      Type: String
+      Value: "4.1"
+      Description: Remap the CIS 4.2 finding to CIS 4.1 remediation
+      Name: /Solutions/SO0111/CIS/1.2.0/4.2/remap
+    Metadata:
+      aws:cdk:path: CIS120Stack/Remap CIS 4.2/Resource
+  CIS42EventsRuleRole05299445:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 4.2/EventsRuleRole/Resource
+  CIS42EventsRuleRoleDefaultPolicy5307DB32:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: CIS42EventsRuleRoleDefaultPolicy5307DB32
+      Roles:
+        - Ref: CIS42EventsRuleRole05299445
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 4.2/EventsRuleRole/DefaultPolicy/Resource
+  CIS42AutoEventRule8BF03E8E:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate CIS 4.2 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - Fn::Join:
+                  - ""
+                  - - "arn:"
+                    - Ref: AWS::Partition
+                    - :securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0/rule/4.2
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: CIS_4.2_AutoTrigger
+      State:
+        Ref: CIS42AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - CIS42EventsRuleRole05299445
+              - Arn
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 4.2/AutoEventRule/Resource
+  CIS43EventsRuleRole333B29A1:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 4.3/EventsRuleRole/Resource
+  CIS43EventsRuleRoleDefaultPolicyB1F8BA10:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: CIS43EventsRuleRoleDefaultPolicyB1F8BA10
+      Roles:
+        - Ref: CIS43EventsRuleRole333B29A1
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 4.3/EventsRuleRole/DefaultPolicy/Resource
+  CIS43AutoEventRuleAF86A230:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate CIS 4.3 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - Fn::Join:
+                  - ""
+                  - - "arn:"
+                    - Ref: AWS::Partition
+                    - :securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0/rule/4.3
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: CIS_4.3_AutoTrigger
+      State:
+        Ref: CIS43AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - CIS43EventsRuleRole333B29A1
+              - Arn
+    Metadata:
+      aws:cdk:path: CIS120Stack/CIS 4.3/AutoEventRule/Resource
+Mappings:
+  SourceCode:
+    General:
+      S3Bucket: sechubrem-627699228322-reference
+      KeyPrefix: aws-security-hub-automated-response-and-remediation/v1.50.mybuild
+

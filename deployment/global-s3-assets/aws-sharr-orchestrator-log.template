@@ -1,0 +1,59 @@
+Description: (SO0111L) AWS Security Hub Automated Response & Remediation Orchestrator Log, v1.50.mybuild
+AWSTemplateFormatVersion: "2010-09-09"
+Parameters:
+  ReuseOrchestratorLogGroup:
+    Type: String
+    Default: "no"
+    AllowedValues:
+      - "yes"
+      - "no"
+    Description: Reuse existing Orchestrator Log Group? Choose "yes" if the log group already exists, else "no"
+  KmsKeyArn:
+    Type: String
+    Description: ARN of the KMS key to use to encrypt log data.
+Resources:
+  OrchestratorLogsEncrypted072D6E38:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      KmsKeyId:
+        Ref: KmsKeyArn
+      LogGroupName: SO0111-SHARR-Orchestrator
+      RetentionInDays: 365
+    UpdateReplacePolicy: Retain
+    DeletionPolicy: Retain
+    Metadata:
+      aws:cdk:path: OrchestratorLogStack/Orchestrator-Logs-Encrypted/Resource
+    Condition: EncryptedLogGroup
+  OrchestratorLogsEFDFFA92:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: SO0111-SHARR-Orchestrator
+      RetentionInDays: 365
+    UpdateReplacePolicy: Retain
+    DeletionPolicy: Retain
+    Metadata:
+      cfn_nag:
+        rules_to_suppress:
+          - id: W84
+            reason: KmsKeyId is not supported in GovCloud.
+    Condition: UnencryptedLogGroup
+Conditions:
+  isNotGovCloud:
+    Fn::Not:
+      - Fn::Equals:
+          - Ref: AWS::Partition
+          - aws-us-gov
+  EncryptedLogGroup:
+    Fn::And:
+      - Condition: isNotGovCloud
+      - Fn::Equals:
+          - Ref: ReuseOrchestratorLogGroup
+          - "no"
+  UnencryptedLogGroup:
+    Fn::And:
+      - Fn::Not:
+          - Condition: isNotGovCloud
+      - Fn::Equals:
+          - Ref: ReuseOrchestratorLogGroup
+          - "no"
+

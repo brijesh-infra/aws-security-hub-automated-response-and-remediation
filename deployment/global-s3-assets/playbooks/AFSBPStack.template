@@ -1,0 +1,2464 @@
+Description: (SO0111P) AWS Security Hub Automated Response & Remediation AFSBP 1.0.0 Compliance Pack - Admin Account, v1.50.mybuild
+AWSTemplateFormatVersion: "2010-09-09"
+Parameters:
+  SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter:
+    Type: AWS::SSM::Parameter::Value<String>
+    Default: /Solutions/SO0111/OrchestratorArn
+  AFSBPAutoScaling1AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for AFSBP AutoScaling.1
+  AFSBPCloudTrail1AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for AFSBP CloudTrail.1
+  AFSBPCloudTrail2AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for AFSBP CloudTrail.2
+  AFSBPCloudTrail4AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for AFSBP CloudTrail.4
+  AFSBPCloudTrail5AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for AFSBP CloudTrail.5
+  AFSBPCodeBuild2AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for AFSBP CodeBuild.2
+  AFSBPConfig1AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for AFSBP Config.1
+  AFSBPEC21AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for AFSBP EC2.1
+  AFSBPEC22AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for AFSBP EC2.2
+  AFSBPEC26AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for AFSBP EC2.6
+  AFSBPEC27AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for AFSBP EC2.7
+  AFSBPIAM3AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for AFSBP IAM.3
+  AFSBPIAM7AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for AFSBP IAM.7
+  AFSBPIAM8AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for AFSBP IAM.8
+  AFSBPLambda1AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for AFSBP Lambda.1
+  AFSBPRDS1AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for AFSBP RDS.1
+  AFSBPRDS2AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for AFSBP RDS.2
+  AFSBPRDS4AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for AFSBP RDS.4
+  AFSBPRDS5AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for AFSBP RDS.5
+  AFSBPRDS6AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for AFSBP RDS.6
+  AFSBPRDS7AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for AFSBP RDS.7
+  AFSBPRDS8AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for AFSBP RDS.8
+  AFSBPRDS13AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for AFSBP RDS.13
+  AFSBPRDS16AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for AFSBP RDS.16
+  AFSBPRedshift1AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for AFSBP Redshift.1
+  AFSBPRedshift3AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for AFSBP Redshift.3
+  AFSBPRedshift4AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for AFSBP Redshift.4
+  AFSBPRedshift6AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for AFSBP Redshift.6
+  AFSBPS31AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for AFSBP S3.1
+  AFSBPS32AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for AFSBP S3.2
+  AFSBPS33AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for AFSBP S3.3
+  AFSBPS34AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for AFSBP S3.4
+  AFSBPS35AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for AFSBP S3.5
+  AFSBPS36AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for AFSBP S3.6
+  AFSBPS38AutoTrigger:
+    Type: String
+    Default: DISABLED
+    AllowedValues:
+      - ENABLED
+      - DISABLED
+    Description: This will fully enable automated remediation for AFSBP S3.8
+Resources:
+  StandardShortName7DDF6BE6:
+    Type: AWS::SSM::Parameter
+    Properties:
+      Type: String
+      Value: AFSBP
+      Description: Provides a short (1-12) character abbreviation for the standard.
+      Name: /Solutions/SO0111/aws-foundational-security-best-practices/shortname
+    Metadata:
+      aws:cdk:path: AFSBPStack/StandardShortName/Resource
+  StandardVersionCB2C6951:
+    Type: AWS::SSM::Parameter
+    Properties:
+      Type: String
+      Value: enabled
+      Description: This parameter controls whether the SHARR step function will process findings for this version of the standard.
+      Name: /Solutions/SO0111/aws-foundational-security-best-practices/1.0.0/status
+    Metadata:
+      aws:cdk:path: AFSBPStack/StandardVersion/Resource
+  AFSBPAutoScaling1EventsRuleRole40C42B87:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP AutoScaling.1/EventsRuleRole/Resource
+  AFSBPAutoScaling1EventsRuleRoleDefaultPolicy8681AE72:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: AFSBPAutoScaling1EventsRuleRoleDefaultPolicy8681AE72
+      Roles:
+        - Ref: AFSBPAutoScaling1EventsRuleRole40C42B87
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP AutoScaling.1/EventsRuleRole/DefaultPolicy/Resource
+  AFSBPAutoScaling1AutoEventRule0BE9087E:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate AFSBP AutoScaling.1 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - aws-foundational-security-best-practices/v/1.0.0/AutoScaling.1
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: AFSBP_AutoScaling.1_AutoTrigger
+      State:
+        Ref: AFSBPAutoScaling1AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - AFSBPAutoScaling1EventsRuleRole40C42B87
+              - Arn
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP AutoScaling.1/AutoEventRule/Resource
+  AFSBPCloudTrail1EventsRuleRole71D06D7A:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP CloudTrail.1/EventsRuleRole/Resource
+  AFSBPCloudTrail1EventsRuleRoleDefaultPolicy685CCD45:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: AFSBPCloudTrail1EventsRuleRoleDefaultPolicy685CCD45
+      Roles:
+        - Ref: AFSBPCloudTrail1EventsRuleRole71D06D7A
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP CloudTrail.1/EventsRuleRole/DefaultPolicy/Resource
+  AFSBPCloudTrail1AutoEventRule468DC6B9:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate AFSBP CloudTrail.1 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - aws-foundational-security-best-practices/v/1.0.0/CloudTrail.1
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: AFSBP_CloudTrail.1_AutoTrigger
+      State:
+        Ref: AFSBPCloudTrail1AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - AFSBPCloudTrail1EventsRuleRole71D06D7A
+              - Arn
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP CloudTrail.1/AutoEventRule/Resource
+  AFSBPCloudTrail2EventsRuleRole94823032:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP CloudTrail.2/EventsRuleRole/Resource
+  AFSBPCloudTrail2EventsRuleRoleDefaultPolicyF9708F0D:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: AFSBPCloudTrail2EventsRuleRoleDefaultPolicyF9708F0D
+      Roles:
+        - Ref: AFSBPCloudTrail2EventsRuleRole94823032
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP CloudTrail.2/EventsRuleRole/DefaultPolicy/Resource
+  AFSBPCloudTrail2AutoEventRule1FF1B100:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate AFSBP CloudTrail.2 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - aws-foundational-security-best-practices/v/1.0.0/CloudTrail.2
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: AFSBP_CloudTrail.2_AutoTrigger
+      State:
+        Ref: AFSBPCloudTrail2AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - AFSBPCloudTrail2EventsRuleRole94823032
+              - Arn
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP CloudTrail.2/AutoEventRule/Resource
+  AFSBPCloudTrail4EventsRuleRoleA0296ED1:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP CloudTrail.4/EventsRuleRole/Resource
+  AFSBPCloudTrail4EventsRuleRoleDefaultPolicy908C6F31:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: AFSBPCloudTrail4EventsRuleRoleDefaultPolicy908C6F31
+      Roles:
+        - Ref: AFSBPCloudTrail4EventsRuleRoleA0296ED1
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP CloudTrail.4/EventsRuleRole/DefaultPolicy/Resource
+  AFSBPCloudTrail4AutoEventRule52DBDC19:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate AFSBP CloudTrail.4 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - aws-foundational-security-best-practices/v/1.0.0/CloudTrail.4
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: AFSBP_CloudTrail.4_AutoTrigger
+      State:
+        Ref: AFSBPCloudTrail4AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - AFSBPCloudTrail4EventsRuleRoleA0296ED1
+              - Arn
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP CloudTrail.4/AutoEventRule/Resource
+  AFSBPCloudTrail5EventsRuleRole29BB11BA:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP CloudTrail.5/EventsRuleRole/Resource
+  AFSBPCloudTrail5EventsRuleRoleDefaultPolicy2E0631D9:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: AFSBPCloudTrail5EventsRuleRoleDefaultPolicy2E0631D9
+      Roles:
+        - Ref: AFSBPCloudTrail5EventsRuleRole29BB11BA
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP CloudTrail.5/EventsRuleRole/DefaultPolicy/Resource
+  AFSBPCloudTrail5AutoEventRule6407BC9A:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate AFSBP CloudTrail.5 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - aws-foundational-security-best-practices/v/1.0.0/CloudTrail.5
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: AFSBP_CloudTrail.5_AutoTrigger
+      State:
+        Ref: AFSBPCloudTrail5AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - AFSBPCloudTrail5EventsRuleRole29BB11BA
+              - Arn
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP CloudTrail.5/AutoEventRule/Resource
+  AFSBPCodeBuild2EventsRuleRole2F18E0E5:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP CodeBuild.2/EventsRuleRole/Resource
+  AFSBPCodeBuild2EventsRuleRoleDefaultPolicyC1F66C2B:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: AFSBPCodeBuild2EventsRuleRoleDefaultPolicyC1F66C2B
+      Roles:
+        - Ref: AFSBPCodeBuild2EventsRuleRole2F18E0E5
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP CodeBuild.2/EventsRuleRole/DefaultPolicy/Resource
+  AFSBPCodeBuild2AutoEventRule4B9FE14A:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate AFSBP CodeBuild.2 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - aws-foundational-security-best-practices/v/1.0.0/CodeBuild.2
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: AFSBP_CodeBuild.2_AutoTrigger
+      State:
+        Ref: AFSBPCodeBuild2AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - AFSBPCodeBuild2EventsRuleRole2F18E0E5
+              - Arn
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP CodeBuild.2/AutoEventRule/Resource
+  AFSBPConfig1EventsRuleRole837C8327:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP Config.1/EventsRuleRole/Resource
+  AFSBPConfig1EventsRuleRoleDefaultPolicy7196564A:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: AFSBPConfig1EventsRuleRoleDefaultPolicy7196564A
+      Roles:
+        - Ref: AFSBPConfig1EventsRuleRole837C8327
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP Config.1/EventsRuleRole/DefaultPolicy/Resource
+  AFSBPConfig1AutoEventRule0D737DBE:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate AFSBP Config.1 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - aws-foundational-security-best-practices/v/1.0.0/Config.1
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: AFSBP_Config.1_AutoTrigger
+      State:
+        Ref: AFSBPConfig1AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - AFSBPConfig1EventsRuleRole837C8327
+              - Arn
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP Config.1/AutoEventRule/Resource
+  AFSBPEC21EventsRuleRole43C39877:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP EC2.1/EventsRuleRole/Resource
+  AFSBPEC21EventsRuleRoleDefaultPolicy9E00CFC6:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: AFSBPEC21EventsRuleRoleDefaultPolicy9E00CFC6
+      Roles:
+        - Ref: AFSBPEC21EventsRuleRole43C39877
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP EC2.1/EventsRuleRole/DefaultPolicy/Resource
+  AFSBPEC21AutoEventRule25775F17:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate AFSBP EC2.1 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - aws-foundational-security-best-practices/v/1.0.0/EC2.1
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: AFSBP_EC2.1_AutoTrigger
+      State:
+        Ref: AFSBPEC21AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - AFSBPEC21EventsRuleRole43C39877
+              - Arn
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP EC2.1/AutoEventRule/Resource
+  AFSBPEC22EventsRuleRoleDE163F68:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP EC2.2/EventsRuleRole/Resource
+  AFSBPEC22EventsRuleRoleDefaultPolicy17C27BDE:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: AFSBPEC22EventsRuleRoleDefaultPolicy17C27BDE
+      Roles:
+        - Ref: AFSBPEC22EventsRuleRoleDE163F68
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP EC2.2/EventsRuleRole/DefaultPolicy/Resource
+  AFSBPEC22AutoEventRule58F6227A:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate AFSBP EC2.2 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - aws-foundational-security-best-practices/v/1.0.0/EC2.2
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: AFSBP_EC2.2_AutoTrigger
+      State:
+        Ref: AFSBPEC22AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - AFSBPEC22EventsRuleRoleDE163F68
+              - Arn
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP EC2.2/AutoEventRule/Resource
+  AFSBPEC26EventsRuleRole1B433881:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP EC2.6/EventsRuleRole/Resource
+  AFSBPEC26EventsRuleRoleDefaultPolicy1F92B9E6:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: AFSBPEC26EventsRuleRoleDefaultPolicy1F92B9E6
+      Roles:
+        - Ref: AFSBPEC26EventsRuleRole1B433881
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP EC2.6/EventsRuleRole/DefaultPolicy/Resource
+  AFSBPEC26AutoEventRule8A6BD817:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate AFSBP EC2.6 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - aws-foundational-security-best-practices/v/1.0.0/EC2.6
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: AFSBP_EC2.6_AutoTrigger
+      State:
+        Ref: AFSBPEC26AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - AFSBPEC26EventsRuleRole1B433881
+              - Arn
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP EC2.6/AutoEventRule/Resource
+  AFSBPEC27EventsRuleRole60F20186:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP EC2.7/EventsRuleRole/Resource
+  AFSBPEC27EventsRuleRoleDefaultPolicy93044CCF:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: AFSBPEC27EventsRuleRoleDefaultPolicy93044CCF
+      Roles:
+        - Ref: AFSBPEC27EventsRuleRole60F20186
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP EC2.7/EventsRuleRole/DefaultPolicy/Resource
+  AFSBPEC27AutoEventRule0E7F144F:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate AFSBP EC2.7 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - aws-foundational-security-best-practices/v/1.0.0/EC2.7
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: AFSBP_EC2.7_AutoTrigger
+      State:
+        Ref: AFSBPEC27AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - AFSBPEC27EventsRuleRole60F20186
+              - Arn
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP EC2.7/AutoEventRule/Resource
+  AFSBPIAM3EventsRuleRole64900E4A:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP IAM.3/EventsRuleRole/Resource
+  AFSBPIAM3EventsRuleRoleDefaultPolicyD4D7FEFD:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: AFSBPIAM3EventsRuleRoleDefaultPolicyD4D7FEFD
+      Roles:
+        - Ref: AFSBPIAM3EventsRuleRole64900E4A
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP IAM.3/EventsRuleRole/DefaultPolicy/Resource
+  AFSBPIAM3AutoEventRule558712D2:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate AFSBP IAM.3 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - aws-foundational-security-best-practices/v/1.0.0/IAM.3
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: AFSBP_IAM.3_AutoTrigger
+      State:
+        Ref: AFSBPIAM3AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - AFSBPIAM3EventsRuleRole64900E4A
+              - Arn
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP IAM.3/AutoEventRule/Resource
+  AFSBPIAM7EventsRuleRoleB27A2436:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP IAM.7/EventsRuleRole/Resource
+  AFSBPIAM7EventsRuleRoleDefaultPolicyBA6C7A51:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: AFSBPIAM7EventsRuleRoleDefaultPolicyBA6C7A51
+      Roles:
+        - Ref: AFSBPIAM7EventsRuleRoleB27A2436
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP IAM.7/EventsRuleRole/DefaultPolicy/Resource
+  AFSBPIAM7AutoEventRule461297C4:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate AFSBP IAM.7 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - aws-foundational-security-best-practices/v/1.0.0/IAM.7
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: AFSBP_IAM.7_AutoTrigger
+      State:
+        Ref: AFSBPIAM7AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - AFSBPIAM7EventsRuleRoleB27A2436
+              - Arn
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP IAM.7/AutoEventRule/Resource
+  AFSBPIAM8EventsRuleRoleA1AE4233:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP IAM.8/EventsRuleRole/Resource
+  AFSBPIAM8EventsRuleRoleDefaultPolicy52D789CD:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: AFSBPIAM8EventsRuleRoleDefaultPolicy52D789CD
+      Roles:
+        - Ref: AFSBPIAM8EventsRuleRoleA1AE4233
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP IAM.8/EventsRuleRole/DefaultPolicy/Resource
+  AFSBPIAM8AutoEventRule9290B681:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate AFSBP IAM.8 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - aws-foundational-security-best-practices/v/1.0.0/IAM.8
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: AFSBP_IAM.8_AutoTrigger
+      State:
+        Ref: AFSBPIAM8AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - AFSBPIAM8EventsRuleRoleA1AE4233
+              - Arn
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP IAM.8/AutoEventRule/Resource
+  AFSBPLambda1EventsRuleRoleF9D0E68B:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP Lambda.1/EventsRuleRole/Resource
+  AFSBPLambda1EventsRuleRoleDefaultPolicy65DBADE9:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: AFSBPLambda1EventsRuleRoleDefaultPolicy65DBADE9
+      Roles:
+        - Ref: AFSBPLambda1EventsRuleRoleF9D0E68B
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP Lambda.1/EventsRuleRole/DefaultPolicy/Resource
+  AFSBPLambda1AutoEventRuleB663D23F:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate AFSBP Lambda.1 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - aws-foundational-security-best-practices/v/1.0.0/Lambda.1
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: AFSBP_Lambda.1_AutoTrigger
+      State:
+        Ref: AFSBPLambda1AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - AFSBPLambda1EventsRuleRoleF9D0E68B
+              - Arn
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP Lambda.1/AutoEventRule/Resource
+  AFSBPRDS1EventsRuleRoleA28379F4:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP RDS.1/EventsRuleRole/Resource
+  AFSBPRDS1EventsRuleRoleDefaultPolicy3F204712:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: AFSBPRDS1EventsRuleRoleDefaultPolicy3F204712
+      Roles:
+        - Ref: AFSBPRDS1EventsRuleRoleA28379F4
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP RDS.1/EventsRuleRole/DefaultPolicy/Resource
+  AFSBPRDS1AutoEventRuleF3474A4C:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate AFSBP RDS.1 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - aws-foundational-security-best-practices/v/1.0.0/RDS.1
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: AFSBP_RDS.1_AutoTrigger
+      State:
+        Ref: AFSBPRDS1AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - AFSBPRDS1EventsRuleRoleA28379F4
+              - Arn
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP RDS.1/AutoEventRule/Resource
+  AFSBPRDS2EventsRuleRoleBAE889E9:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP RDS.2/EventsRuleRole/Resource
+  AFSBPRDS2EventsRuleRoleDefaultPolicyE3E6F7F6:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: AFSBPRDS2EventsRuleRoleDefaultPolicyE3E6F7F6
+      Roles:
+        - Ref: AFSBPRDS2EventsRuleRoleBAE889E9
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP RDS.2/EventsRuleRole/DefaultPolicy/Resource
+  AFSBPRDS2AutoEventRule17029ADF:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate AFSBP RDS.2 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - aws-foundational-security-best-practices/v/1.0.0/RDS.2
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: AFSBP_RDS.2_AutoTrigger
+      State:
+        Ref: AFSBPRDS2AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - AFSBPRDS2EventsRuleRoleBAE889E9
+              - Arn
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP RDS.2/AutoEventRule/Resource
+  AFSBPRDS4EventsRuleRoleA9E31C8A:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP RDS.4/EventsRuleRole/Resource
+  AFSBPRDS4EventsRuleRoleDefaultPolicy8755FC94:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: AFSBPRDS4EventsRuleRoleDefaultPolicy8755FC94
+      Roles:
+        - Ref: AFSBPRDS4EventsRuleRoleA9E31C8A
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP RDS.4/EventsRuleRole/DefaultPolicy/Resource
+  AFSBPRDS4AutoEventRule6E4E1AE3:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate AFSBP RDS.4 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - aws-foundational-security-best-practices/v/1.0.0/RDS.4
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: AFSBP_RDS.4_AutoTrigger
+      State:
+        Ref: AFSBPRDS4AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - AFSBPRDS4EventsRuleRoleA9E31C8A
+              - Arn
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP RDS.4/AutoEventRule/Resource
+  AFSBPRDS5EventsRuleRole8B5FB794:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP RDS.5/EventsRuleRole/Resource
+  AFSBPRDS5EventsRuleRoleDefaultPolicy00A85B11:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: AFSBPRDS5EventsRuleRoleDefaultPolicy00A85B11
+      Roles:
+        - Ref: AFSBPRDS5EventsRuleRole8B5FB794
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP RDS.5/EventsRuleRole/DefaultPolicy/Resource
+  AFSBPRDS5AutoEventRule924423B2:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate AFSBP RDS.5 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - aws-foundational-security-best-practices/v/1.0.0/RDS.5
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: AFSBP_RDS.5_AutoTrigger
+      State:
+        Ref: AFSBPRDS5AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - AFSBPRDS5EventsRuleRole8B5FB794
+              - Arn
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP RDS.5/AutoEventRule/Resource
+  AFSBPRDS6EventsRuleRoleC40F92FF:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP RDS.6/EventsRuleRole/Resource
+  AFSBPRDS6EventsRuleRoleDefaultPolicyC9A77BA4:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: AFSBPRDS6EventsRuleRoleDefaultPolicyC9A77BA4
+      Roles:
+        - Ref: AFSBPRDS6EventsRuleRoleC40F92FF
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP RDS.6/EventsRuleRole/DefaultPolicy/Resource
+  AFSBPRDS6AutoEventRule68B8F587:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate AFSBP RDS.6 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - aws-foundational-security-best-practices/v/1.0.0/RDS.6
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: AFSBP_RDS.6_AutoTrigger
+      State:
+        Ref: AFSBPRDS6AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - AFSBPRDS6EventsRuleRoleC40F92FF
+              - Arn
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP RDS.6/AutoEventRule/Resource
+  AFSBPRDS7EventsRuleRole4E57829C:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP RDS.7/EventsRuleRole/Resource
+  AFSBPRDS7EventsRuleRoleDefaultPolicyEA7C7B62:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: AFSBPRDS7EventsRuleRoleDefaultPolicyEA7C7B62
+      Roles:
+        - Ref: AFSBPRDS7EventsRuleRole4E57829C
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP RDS.7/EventsRuleRole/DefaultPolicy/Resource
+  AFSBPRDS7AutoEventRule848E787E:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate AFSBP RDS.7 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - aws-foundational-security-best-practices/v/1.0.0/RDS.7
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: AFSBP_RDS.7_AutoTrigger
+      State:
+        Ref: AFSBPRDS7AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - AFSBPRDS7EventsRuleRole4E57829C
+              - Arn
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP RDS.7/AutoEventRule/Resource
+  AFSBPRDS8EventsRuleRoleC2F10237:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP RDS.8/EventsRuleRole/Resource
+  AFSBPRDS8EventsRuleRoleDefaultPolicy96064F08:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: AFSBPRDS8EventsRuleRoleDefaultPolicy96064F08
+      Roles:
+        - Ref: AFSBPRDS8EventsRuleRoleC2F10237
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP RDS.8/EventsRuleRole/DefaultPolicy/Resource
+  AFSBPRDS8AutoEventRuleE03DC9FF:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate AFSBP RDS.8 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - aws-foundational-security-best-practices/v/1.0.0/RDS.8
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: AFSBP_RDS.8_AutoTrigger
+      State:
+        Ref: AFSBPRDS8AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - AFSBPRDS8EventsRuleRoleC2F10237
+              - Arn
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP RDS.8/AutoEventRule/Resource
+  AFSBPRDS13EventsRuleRoleDE781BAB:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP RDS.13/EventsRuleRole/Resource
+  AFSBPRDS13EventsRuleRoleDefaultPolicy837B3E90:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: AFSBPRDS13EventsRuleRoleDefaultPolicy837B3E90
+      Roles:
+        - Ref: AFSBPRDS13EventsRuleRoleDE781BAB
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP RDS.13/EventsRuleRole/DefaultPolicy/Resource
+  AFSBPRDS13AutoEventRule233580F1:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate AFSBP RDS.13 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - aws-foundational-security-best-practices/v/1.0.0/RDS.13
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: AFSBP_RDS.13_AutoTrigger
+      State:
+        Ref: AFSBPRDS13AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - AFSBPRDS13EventsRuleRoleDE781BAB
+              - Arn
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP RDS.13/AutoEventRule/Resource
+  AFSBPRDS16EventsRuleRole75C85223:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP RDS.16/EventsRuleRole/Resource
+  AFSBPRDS16EventsRuleRoleDefaultPolicyC4E5A575:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: AFSBPRDS16EventsRuleRoleDefaultPolicyC4E5A575
+      Roles:
+        - Ref: AFSBPRDS16EventsRuleRole75C85223
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP RDS.16/EventsRuleRole/DefaultPolicy/Resource
+  AFSBPRDS16AutoEventRule589A5A6C:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate AFSBP RDS.16 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - aws-foundational-security-best-practices/v/1.0.0/RDS.16
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: AFSBP_RDS.16_AutoTrigger
+      State:
+        Ref: AFSBPRDS16AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - AFSBPRDS16EventsRuleRole75C85223
+              - Arn
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP RDS.16/AutoEventRule/Resource
+  AFSBPRedshift1EventsRuleRole4F795EA5:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP Redshift.1/EventsRuleRole/Resource
+  AFSBPRedshift1EventsRuleRoleDefaultPolicy9047042F:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: AFSBPRedshift1EventsRuleRoleDefaultPolicy9047042F
+      Roles:
+        - Ref: AFSBPRedshift1EventsRuleRole4F795EA5
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP Redshift.1/EventsRuleRole/DefaultPolicy/Resource
+  AFSBPRedshift1AutoEventRuleDC7439EB:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate AFSBP Redshift.1 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - aws-foundational-security-best-practices/v/1.0.0/Redshift.1
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: AFSBP_Redshift.1_AutoTrigger
+      State:
+        Ref: AFSBPRedshift1AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - AFSBPRedshift1EventsRuleRole4F795EA5
+              - Arn
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP Redshift.1/AutoEventRule/Resource
+  AFSBPRedshift3EventsRuleRole439CAD98:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP Redshift.3/EventsRuleRole/Resource
+  AFSBPRedshift3EventsRuleRoleDefaultPolicy3343E2AB:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: AFSBPRedshift3EventsRuleRoleDefaultPolicy3343E2AB
+      Roles:
+        - Ref: AFSBPRedshift3EventsRuleRole439CAD98
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP Redshift.3/EventsRuleRole/DefaultPolicy/Resource
+  AFSBPRedshift3AutoEventRuleF8B7070F:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate AFSBP Redshift.3 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - aws-foundational-security-best-practices/v/1.0.0/Redshift.3
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: AFSBP_Redshift.3_AutoTrigger
+      State:
+        Ref: AFSBPRedshift3AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - AFSBPRedshift3EventsRuleRole439CAD98
+              - Arn
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP Redshift.3/AutoEventRule/Resource
+  AFSBPRedshift4EventsRuleRoleA98C7C74:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP Redshift.4/EventsRuleRole/Resource
+  AFSBPRedshift4EventsRuleRoleDefaultPolicyD888809B:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: AFSBPRedshift4EventsRuleRoleDefaultPolicyD888809B
+      Roles:
+        - Ref: AFSBPRedshift4EventsRuleRoleA98C7C74
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP Redshift.4/EventsRuleRole/DefaultPolicy/Resource
+  AFSBPRedshift4AutoEventRule2DC79B74:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate AFSBP Redshift.4 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - aws-foundational-security-best-practices/v/1.0.0/Redshift.4
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: AFSBP_Redshift.4_AutoTrigger
+      State:
+        Ref: AFSBPRedshift4AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - AFSBPRedshift4EventsRuleRoleA98C7C74
+              - Arn
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP Redshift.4/AutoEventRule/Resource
+  AFSBPRedshift6EventsRuleRole832D2E56:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP Redshift.6/EventsRuleRole/Resource
+  AFSBPRedshift6EventsRuleRoleDefaultPolicy754B13F6:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: AFSBPRedshift6EventsRuleRoleDefaultPolicy754B13F6
+      Roles:
+        - Ref: AFSBPRedshift6EventsRuleRole832D2E56
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP Redshift.6/EventsRuleRole/DefaultPolicy/Resource
+  AFSBPRedshift6AutoEventRuleE73249CD:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate AFSBP Redshift.6 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - aws-foundational-security-best-practices/v/1.0.0/Redshift.6
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: AFSBP_Redshift.6_AutoTrigger
+      State:
+        Ref: AFSBPRedshift6AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - AFSBPRedshift6EventsRuleRole832D2E56
+              - Arn
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP Redshift.6/AutoEventRule/Resource
+  AFSBPS31EventsRuleRole7E5BE635:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP S3.1/EventsRuleRole/Resource
+  AFSBPS31EventsRuleRoleDefaultPolicyF4925CF9:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: AFSBPS31EventsRuleRoleDefaultPolicyF4925CF9
+      Roles:
+        - Ref: AFSBPS31EventsRuleRole7E5BE635
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP S3.1/EventsRuleRole/DefaultPolicy/Resource
+  AFSBPS31AutoEventRule98E1B83D:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate AFSBP S3.1 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - aws-foundational-security-best-practices/v/1.0.0/S3.1
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: AFSBP_S3.1_AutoTrigger
+      State:
+        Ref: AFSBPS31AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - AFSBPS31EventsRuleRole7E5BE635
+              - Arn
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP S3.1/AutoEventRule/Resource
+  AFSBPS32EventsRuleRole087A54B3:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP S3.2/EventsRuleRole/Resource
+  AFSBPS32EventsRuleRoleDefaultPolicy35402CF3:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: AFSBPS32EventsRuleRoleDefaultPolicy35402CF3
+      Roles:
+        - Ref: AFSBPS32EventsRuleRole087A54B3
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP S3.2/EventsRuleRole/DefaultPolicy/Resource
+  AFSBPS32AutoEventRule1F14B41A:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate AFSBP S3.2 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - aws-foundational-security-best-practices/v/1.0.0/S3.2
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: AFSBP_S3.2_AutoTrigger
+      State:
+        Ref: AFSBPS32AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - AFSBPS32EventsRuleRole087A54B3
+              - Arn
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP S3.2/AutoEventRule/Resource
+  RemapAFSBPS33665DB5F0:
+    Type: AWS::SSM::Parameter
+    Properties:
+      Type: String
+      Value: S3.2
+      Description: Remap the AFSBP S3.3 finding to AFSBP S3.2 remediation
+      Name: /Solutions/SO0111/AFSBP/1.0.0/S3.3/remap
+    Metadata:
+      aws:cdk:path: AFSBPStack/Remap AFSBP S3.3/Resource
+  AFSBPS33EventsRuleRoleA177EAAA:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP S3.3/EventsRuleRole/Resource
+  AFSBPS33EventsRuleRoleDefaultPolicy97673B3D:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: AFSBPS33EventsRuleRoleDefaultPolicy97673B3D
+      Roles:
+        - Ref: AFSBPS33EventsRuleRoleA177EAAA
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP S3.3/EventsRuleRole/DefaultPolicy/Resource
+  AFSBPS33AutoEventRule056D09B9:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate AFSBP S3.3 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - aws-foundational-security-best-practices/v/1.0.0/S3.3
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: AFSBP_S3.3_AutoTrigger
+      State:
+        Ref: AFSBPS33AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - AFSBPS33EventsRuleRoleA177EAAA
+              - Arn
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP S3.3/AutoEventRule/Resource
+  AFSBPS34EventsRuleRole9E26A020:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP S3.4/EventsRuleRole/Resource
+  AFSBPS34EventsRuleRoleDefaultPolicy5681D28C:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: AFSBPS34EventsRuleRoleDefaultPolicy5681D28C
+      Roles:
+        - Ref: AFSBPS34EventsRuleRole9E26A020
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP S3.4/EventsRuleRole/DefaultPolicy/Resource
+  AFSBPS34AutoEventRule1C16B0C7:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate AFSBP S3.4 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - aws-foundational-security-best-practices/v/1.0.0/S3.4
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: AFSBP_S3.4_AutoTrigger
+      State:
+        Ref: AFSBPS34AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - AFSBPS34EventsRuleRole9E26A020
+              - Arn
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP S3.4/AutoEventRule/Resource
+  AFSBPS35EventsRuleRole1330F6DC:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP S3.5/EventsRuleRole/Resource
+  AFSBPS35EventsRuleRoleDefaultPolicy83E3156B:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: AFSBPS35EventsRuleRoleDefaultPolicy83E3156B
+      Roles:
+        - Ref: AFSBPS35EventsRuleRole1330F6DC
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP S3.5/EventsRuleRole/DefaultPolicy/Resource
+  AFSBPS35AutoEventRuleA902DF8E:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate AFSBP S3.5 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - aws-foundational-security-best-practices/v/1.0.0/S3.5
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: AFSBP_S3.5_AutoTrigger
+      State:
+        Ref: AFSBPS35AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - AFSBPS35EventsRuleRole1330F6DC
+              - Arn
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP S3.5/AutoEventRule/Resource
+  AFSBPS36EventsRuleRole461F4D0F:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP S3.6/EventsRuleRole/Resource
+  AFSBPS36EventsRuleRoleDefaultPolicy0652C404:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: AFSBPS36EventsRuleRoleDefaultPolicy0652C404
+      Roles:
+        - Ref: AFSBPS36EventsRuleRole461F4D0F
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP S3.6/EventsRuleRole/DefaultPolicy/Resource
+  AFSBPS36AutoEventRule0619559F:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate AFSBP S3.6 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - aws-foundational-security-best-practices/v/1.0.0/S3.6
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: AFSBP_S3.6_AutoTrigger
+      State:
+        Ref: AFSBPS36AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - AFSBPS36EventsRuleRole461F4D0F
+              - Arn
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP S3.6/AutoEventRule/Resource
+  RemapAFSBPS381725FAF9:
+    Type: AWS::SSM::Parameter
+    Properties:
+      Type: String
+      Value: S3.2
+      Description: Remap the AFSBP S3.8 finding to AFSBP S3.2 remediation
+      Name: /Solutions/SO0111/AFSBP/1.0.0/S3.8/remap
+    Metadata:
+      aws:cdk:path: AFSBPStack/Remap AFSBP S3.8/Resource
+  AFSBPS38EventsRuleRole56AB9A59:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP S3.8/EventsRuleRole/Resource
+  AFSBPS38EventsRuleRoleDefaultPolicyE2AAA2E5:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action: states:StartExecution
+            Effect: Allow
+            Resource:
+              Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+        Version: "2012-10-17"
+      PolicyName: AFSBPS38EventsRuleRoleDefaultPolicyE2AAA2E5
+      Roles:
+        - Ref: AFSBPS38EventsRuleRole56AB9A59
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP S3.8/EventsRuleRole/DefaultPolicy/Resource
+  AFSBPS38AutoEventRuleFA5F8C46:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Remediate AFSBP S3.8 automatic remediation trigger event rule.
+      EventPattern:
+        source:
+          - aws.securityhub
+        detail-type:
+          - Security Hub Findings - Imported
+        detail:
+          findings:
+            GeneratorId:
+              - aws-foundational-security-best-practices/v/1.0.0/S3.8
+            Workflow:
+              Status:
+                - NEW
+            Compliance:
+              Status:
+                - FAILED
+                - WARNING
+            RecordState:
+              - ACTIVE
+      Name: AFSBP_S3.8_AutoTrigger
+      State:
+        Ref: AFSBPS38AutoTrigger
+      Targets:
+        - Arn:
+            Ref: SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter
+          Id: Target0
+          RoleArn:
+            Fn::GetAtt:
+              - AFSBPS38EventsRuleRole56AB9A59
+              - Arn
+    Metadata:
+      aws:cdk:path: AFSBPStack/AFSBP S3.8/AutoEventRule/Resource
+Mappings:
+  SourceCode:
+    General:
+      S3Bucket: sechubrem-627699228322-reference
+      KeyPrefix: aws-security-hub-automated-response-and-remediation/v1.50.mybuild
+

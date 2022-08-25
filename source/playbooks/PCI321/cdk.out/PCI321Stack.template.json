@@ -1,0 +1,2720 @@
+{
+ "Description": "(SO0111P) AWS Security Hub Automated Response & Remediation PCI 3.2.1 Compliance Pack - Admin Account, v1.50.mybuild",
+ "AWSTemplateFormatVersion": "2010-09-09",
+ "Parameters": {
+  "SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter": {
+   "Type": "AWS::SSM::Parameter::Value<String>",
+   "Default": "/Solutions/SO0111/OrchestratorArn"
+  },
+  "PCIPCIAutoScaling1AutoTrigger": {
+   "Type": "String",
+   "Default": "DISABLED",
+   "AllowedValues": [
+    "ENABLED",
+    "DISABLED"
+   ],
+   "Description": "This will fully enable automated remediation for PCI PCI.AutoScaling.1"
+  },
+  "PCIPCIIAM7AutoTrigger": {
+   "Type": "String",
+   "Default": "DISABLED",
+   "AllowedValues": [
+    "ENABLED",
+    "DISABLED"
+   ],
+   "Description": "This will fully enable automated remediation for PCI PCI.IAM.7"
+  },
+  "PCIPCICloudTrail2AutoTrigger": {
+   "Type": "String",
+   "Default": "DISABLED",
+   "AllowedValues": [
+    "ENABLED",
+    "DISABLED"
+   ],
+   "Description": "This will fully enable automated remediation for PCI PCI.CloudTrail.2"
+  },
+  "PCIPCICodeBuild2AutoTrigger": {
+   "Type": "String",
+   "Default": "DISABLED",
+   "AllowedValues": [
+    "ENABLED",
+    "DISABLED"
+   ],
+   "Description": "This will fully enable automated remediation for PCI PCI.CodeBuild.2"
+  },
+  "PCIPCICW1AutoTrigger": {
+   "Type": "String",
+   "Default": "DISABLED",
+   "AllowedValues": [
+    "ENABLED",
+    "DISABLED"
+   ],
+   "Description": "This will fully enable automated remediation for PCI PCI.CW.1"
+  },
+  "PCIPCIEC21AutoTrigger": {
+   "Type": "String",
+   "Default": "DISABLED",
+   "AllowedValues": [
+    "ENABLED",
+    "DISABLED"
+   ],
+   "Description": "This will fully enable automated remediation for PCI PCI.EC2.1"
+  },
+  "PCIPCIEC22AutoTrigger": {
+   "Type": "String",
+   "Default": "DISABLED",
+   "AllowedValues": [
+    "ENABLED",
+    "DISABLED"
+   ],
+   "Description": "This will fully enable automated remediation for PCI PCI.EC2.2"
+  },
+  "PCIPCIEC25AutoTrigger": {
+   "Type": "String",
+   "Default": "DISABLED",
+   "AllowedValues": [
+    "ENABLED",
+    "DISABLED"
+   ],
+   "Description": "This will fully enable automated remediation for PCI PCI.EC2.5"
+  },
+  "PCIPCIIAM8AutoTrigger": {
+   "Type": "String",
+   "Default": "DISABLED",
+   "AllowedValues": [
+    "ENABLED",
+    "DISABLED"
+   ],
+   "Description": "This will fully enable automated remediation for PCI PCI.IAM.8"
+  },
+  "PCIPCIKMS1AutoTrigger": {
+   "Type": "String",
+   "Default": "DISABLED",
+   "AllowedValues": [
+    "ENABLED",
+    "DISABLED"
+   ],
+   "Description": "This will fully enable automated remediation for PCI PCI.KMS.1"
+  },
+  "PCIPCILambda1AutoTrigger": {
+   "Type": "String",
+   "Default": "DISABLED",
+   "AllowedValues": [
+    "ENABLED",
+    "DISABLED"
+   ],
+   "Description": "This will fully enable automated remediation for PCI PCI.Lambda.1"
+  },
+  "PCIPCIRDS1AutoTrigger": {
+   "Type": "String",
+   "Default": "DISABLED",
+   "AllowedValues": [
+    "ENABLED",
+    "DISABLED"
+   ],
+   "Description": "This will fully enable automated remediation for PCI PCI.RDS.1"
+  },
+  "PCIPCIRDS2AutoTrigger": {
+   "Type": "String",
+   "Default": "DISABLED",
+   "AllowedValues": [
+    "ENABLED",
+    "DISABLED"
+   ],
+   "Description": "This will fully enable automated remediation for PCI PCI.RDS.2"
+  },
+  "PCIPCIRedshift1AutoTrigger": {
+   "Type": "String",
+   "Default": "DISABLED",
+   "AllowedValues": [
+    "ENABLED",
+    "DISABLED"
+   ],
+   "Description": "This will fully enable automated remediation for PCI PCI.Redshift.1"
+  },
+  "PCIPCICloudTrail1AutoTrigger": {
+   "Type": "String",
+   "Default": "DISABLED",
+   "AllowedValues": [
+    "ENABLED",
+    "DISABLED"
+   ],
+   "Description": "This will fully enable automated remediation for PCI PCI.CloudTrail.1"
+  },
+  "PCIPCIEC26AutoTrigger": {
+   "Type": "String",
+   "Default": "DISABLED",
+   "AllowedValues": [
+    "ENABLED",
+    "DISABLED"
+   ],
+   "Description": "This will fully enable automated remediation for PCI PCI.EC2.6"
+  },
+  "PCIPCICloudTrail3AutoTrigger": {
+   "Type": "String",
+   "Default": "DISABLED",
+   "AllowedValues": [
+    "ENABLED",
+    "DISABLED"
+   ],
+   "Description": "This will fully enable automated remediation for PCI PCI.CloudTrail.3"
+  },
+  "PCIPCICloudTrail4AutoTrigger": {
+   "Type": "String",
+   "Default": "DISABLED",
+   "AllowedValues": [
+    "ENABLED",
+    "DISABLED"
+   ],
+   "Description": "This will fully enable automated remediation for PCI PCI.CloudTrail.4"
+  },
+  "PCIPCIConfig1AutoTrigger": {
+   "Type": "String",
+   "Default": "DISABLED",
+   "AllowedValues": [
+    "ENABLED",
+    "DISABLED"
+   ],
+   "Description": "This will fully enable automated remediation for PCI PCI.Config.1"
+  },
+  "PCIPCIS31AutoTrigger": {
+   "Type": "String",
+   "Default": "DISABLED",
+   "AllowedValues": [
+    "ENABLED",
+    "DISABLED"
+   ],
+   "Description": "This will fully enable automated remediation for PCI PCI.S3.1"
+  },
+  "PCIPCIS32AutoTrigger": {
+   "Type": "String",
+   "Default": "DISABLED",
+   "AllowedValues": [
+    "ENABLED",
+    "DISABLED"
+   ],
+   "Description": "This will fully enable automated remediation for PCI PCI.S3.2"
+  },
+  "PCIPCIS34AutoTrigger": {
+   "Type": "String",
+   "Default": "DISABLED",
+   "AllowedValues": [
+    "ENABLED",
+    "DISABLED"
+   ],
+   "Description": "This will fully enable automated remediation for PCI PCI.S3.4"
+  },
+  "PCIPCIS35AutoTrigger": {
+   "Type": "String",
+   "Default": "DISABLED",
+   "AllowedValues": [
+    "ENABLED",
+    "DISABLED"
+   ],
+   "Description": "This will fully enable automated remediation for PCI PCI.S3.5"
+  },
+  "PCIPCIS36AutoTrigger": {
+   "Type": "String",
+   "Default": "DISABLED",
+   "AllowedValues": [
+    "ENABLED",
+    "DISABLED"
+   ],
+   "Description": "This will fully enable automated remediation for PCI PCI.S3.6"
+  }
+ },
+ "Resources": {
+  "StandardShortName7DDF6BE6": {
+   "Type": "AWS::SSM::Parameter",
+   "Properties": {
+    "Type": "String",
+    "Value": "PCI",
+    "Description": "Provides a short (1-12) character abbreviation for the standard.",
+    "Name": "/Solutions/SO0111/pci-dss/shortname"
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/StandardShortName/Resource"
+   }
+  },
+  "StandardVersionCB2C6951": {
+   "Type": "AWS::SSM::Parameter",
+   "Properties": {
+    "Type": "String",
+    "Value": "enabled",
+    "Description": "This parameter controls whether the SHARR step function will process findings for this version of the standard.",
+    "Name": "/Solutions/SO0111/pci-dss/3.2.1/status"
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/StandardVersion/Resource"
+   }
+  },
+  "PCIPCIAutoScaling1EventsRuleRole3283761D": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "events.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.AutoScaling.1/EventsRuleRole/Resource"
+   }
+  },
+  "PCIPCIAutoScaling1EventsRuleRoleDefaultPolicy7F317AE9": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "states:StartExecution",
+       "Effect": "Allow",
+       "Resource": {
+        "Ref": "SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "PCIPCIAutoScaling1EventsRuleRoleDefaultPolicy7F317AE9",
+    "Roles": [
+     {
+      "Ref": "PCIPCIAutoScaling1EventsRuleRole3283761D"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.AutoScaling.1/EventsRuleRole/DefaultPolicy/Resource"
+   }
+  },
+  "PCIPCIAutoScaling1AutoEventRuleCDFEB9FF": {
+   "Type": "AWS::Events::Rule",
+   "Properties": {
+    "Description": "Remediate PCI PCI.AutoScaling.1 automatic remediation trigger event rule.",
+    "EventPattern": {
+     "source": [
+      "aws.securityhub"
+     ],
+     "detail-type": [
+      "Security Hub Findings - Imported"
+     ],
+     "detail": {
+      "findings": {
+       "GeneratorId": [
+        "pci-dss/v/3.2.1/PCI.AutoScaling.1"
+       ],
+       "Workflow": {
+        "Status": [
+         "NEW"
+        ]
+       },
+       "Compliance": {
+        "Status": [
+         "FAILED",
+         "WARNING"
+        ]
+       },
+       "RecordState": [
+        "ACTIVE"
+       ]
+      }
+     }
+    },
+    "Name": "PCI_PCI.AutoScaling.1_AutoTrigger",
+    "State": {
+     "Ref": "PCIPCIAutoScaling1AutoTrigger"
+    },
+    "Targets": [
+     {
+      "Arn": {
+       "Ref": "SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter"
+      },
+      "Id": "Target0",
+      "RoleArn": {
+       "Fn::GetAtt": [
+        "PCIPCIAutoScaling1EventsRuleRole3283761D",
+        "Arn"
+       ]
+      }
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.AutoScaling.1/AutoEventRule/Resource"
+   }
+  },
+  "PCIPCIIAM7EventsRuleRole62D2BAD0": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "events.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.IAM.7/EventsRuleRole/Resource"
+   }
+  },
+  "PCIPCIIAM7EventsRuleRoleDefaultPolicy7F2AE950": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "states:StartExecution",
+       "Effect": "Allow",
+       "Resource": {
+        "Ref": "SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "PCIPCIIAM7EventsRuleRoleDefaultPolicy7F2AE950",
+    "Roles": [
+     {
+      "Ref": "PCIPCIIAM7EventsRuleRole62D2BAD0"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.IAM.7/EventsRuleRole/DefaultPolicy/Resource"
+   }
+  },
+  "PCIPCIIAM7AutoEventRule111C9637": {
+   "Type": "AWS::Events::Rule",
+   "Properties": {
+    "Description": "Remediate PCI PCI.IAM.7 automatic remediation trigger event rule.",
+    "EventPattern": {
+     "source": [
+      "aws.securityhub"
+     ],
+     "detail-type": [
+      "Security Hub Findings - Imported"
+     ],
+     "detail": {
+      "findings": {
+       "GeneratorId": [
+        "pci-dss/v/3.2.1/PCI.IAM.7"
+       ],
+       "Workflow": {
+        "Status": [
+         "NEW"
+        ]
+       },
+       "Compliance": {
+        "Status": [
+         "FAILED",
+         "WARNING"
+        ]
+       },
+       "RecordState": [
+        "ACTIVE"
+       ]
+      }
+     }
+    },
+    "Name": "PCI_PCI.IAM.7_AutoTrigger",
+    "State": {
+     "Ref": "PCIPCIIAM7AutoTrigger"
+    },
+    "Targets": [
+     {
+      "Arn": {
+       "Ref": "SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter"
+      },
+      "Id": "Target0",
+      "RoleArn": {
+       "Fn::GetAtt": [
+        "PCIPCIIAM7EventsRuleRole62D2BAD0",
+        "Arn"
+       ]
+      }
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.IAM.7/AutoEventRule/Resource"
+   }
+  },
+  "PCIPCICloudTrail2EventsRuleRole1AD7AA8C": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "events.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.CloudTrail.2/EventsRuleRole/Resource"
+   }
+  },
+  "PCIPCICloudTrail2EventsRuleRoleDefaultPolicy17FB2CAD": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "states:StartExecution",
+       "Effect": "Allow",
+       "Resource": {
+        "Ref": "SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "PCIPCICloudTrail2EventsRuleRoleDefaultPolicy17FB2CAD",
+    "Roles": [
+     {
+      "Ref": "PCIPCICloudTrail2EventsRuleRole1AD7AA8C"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.CloudTrail.2/EventsRuleRole/DefaultPolicy/Resource"
+   }
+  },
+  "PCIPCICloudTrail2AutoEventRule76387726": {
+   "Type": "AWS::Events::Rule",
+   "Properties": {
+    "Description": "Remediate PCI PCI.CloudTrail.2 automatic remediation trigger event rule.",
+    "EventPattern": {
+     "source": [
+      "aws.securityhub"
+     ],
+     "detail-type": [
+      "Security Hub Findings - Imported"
+     ],
+     "detail": {
+      "findings": {
+       "GeneratorId": [
+        "pci-dss/v/3.2.1/PCI.CloudTrail.2"
+       ],
+       "Workflow": {
+        "Status": [
+         "NEW"
+        ]
+       },
+       "Compliance": {
+        "Status": [
+         "FAILED",
+         "WARNING"
+        ]
+       },
+       "RecordState": [
+        "ACTIVE"
+       ]
+      }
+     }
+    },
+    "Name": "PCI_PCI.CloudTrail.2_AutoTrigger",
+    "State": {
+     "Ref": "PCIPCICloudTrail2AutoTrigger"
+    },
+    "Targets": [
+     {
+      "Arn": {
+       "Ref": "SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter"
+      },
+      "Id": "Target0",
+      "RoleArn": {
+       "Fn::GetAtt": [
+        "PCIPCICloudTrail2EventsRuleRole1AD7AA8C",
+        "Arn"
+       ]
+      }
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.CloudTrail.2/AutoEventRule/Resource"
+   }
+  },
+  "PCIPCICodeBuild2EventsRuleRole90EBA092": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "events.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.CodeBuild.2/EventsRuleRole/Resource"
+   }
+  },
+  "PCIPCICodeBuild2EventsRuleRoleDefaultPolicy30285E81": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "states:StartExecution",
+       "Effect": "Allow",
+       "Resource": {
+        "Ref": "SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "PCIPCICodeBuild2EventsRuleRoleDefaultPolicy30285E81",
+    "Roles": [
+     {
+      "Ref": "PCIPCICodeBuild2EventsRuleRole90EBA092"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.CodeBuild.2/EventsRuleRole/DefaultPolicy/Resource"
+   }
+  },
+  "PCIPCICodeBuild2AutoEventRule7D73D68B": {
+   "Type": "AWS::Events::Rule",
+   "Properties": {
+    "Description": "Remediate PCI PCI.CodeBuild.2 automatic remediation trigger event rule.",
+    "EventPattern": {
+     "source": [
+      "aws.securityhub"
+     ],
+     "detail-type": [
+      "Security Hub Findings - Imported"
+     ],
+     "detail": {
+      "findings": {
+       "GeneratorId": [
+        "pci-dss/v/3.2.1/PCI.CodeBuild.2"
+       ],
+       "Workflow": {
+        "Status": [
+         "NEW"
+        ]
+       },
+       "Compliance": {
+        "Status": [
+         "FAILED",
+         "WARNING"
+        ]
+       },
+       "RecordState": [
+        "ACTIVE"
+       ]
+      }
+     }
+    },
+    "Name": "PCI_PCI.CodeBuild.2_AutoTrigger",
+    "State": {
+     "Ref": "PCIPCICodeBuild2AutoTrigger"
+    },
+    "Targets": [
+     {
+      "Arn": {
+       "Ref": "SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter"
+      },
+      "Id": "Target0",
+      "RoleArn": {
+       "Fn::GetAtt": [
+        "PCIPCICodeBuild2EventsRuleRole90EBA092",
+        "Arn"
+       ]
+      }
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.CodeBuild.2/AutoEventRule/Resource"
+   }
+  },
+  "PCIPCICW1EventsRuleRoleCDF3B7B3": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "events.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.CW.1/EventsRuleRole/Resource"
+   }
+  },
+  "PCIPCICW1EventsRuleRoleDefaultPolicy3EF41EF3": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "states:StartExecution",
+       "Effect": "Allow",
+       "Resource": {
+        "Ref": "SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "PCIPCICW1EventsRuleRoleDefaultPolicy3EF41EF3",
+    "Roles": [
+     {
+      "Ref": "PCIPCICW1EventsRuleRoleCDF3B7B3"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.CW.1/EventsRuleRole/DefaultPolicy/Resource"
+   }
+  },
+  "PCIPCICW1AutoEventRule7B6373D4": {
+   "Type": "AWS::Events::Rule",
+   "Properties": {
+    "Description": "Remediate PCI PCI.CW.1 automatic remediation trigger event rule.",
+    "EventPattern": {
+     "source": [
+      "aws.securityhub"
+     ],
+     "detail-type": [
+      "Security Hub Findings - Imported"
+     ],
+     "detail": {
+      "findings": {
+       "GeneratorId": [
+        "pci-dss/v/3.2.1/PCI.CW.1"
+       ],
+       "Workflow": {
+        "Status": [
+         "NEW"
+        ]
+       },
+       "Compliance": {
+        "Status": [
+         "FAILED",
+         "WARNING"
+        ]
+       },
+       "RecordState": [
+        "ACTIVE"
+       ]
+      }
+     }
+    },
+    "Name": "PCI_PCI.CW.1_AutoTrigger",
+    "State": {
+     "Ref": "PCIPCICW1AutoTrigger"
+    },
+    "Targets": [
+     {
+      "Arn": {
+       "Ref": "SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter"
+      },
+      "Id": "Target0",
+      "RoleArn": {
+       "Fn::GetAtt": [
+        "PCIPCICW1EventsRuleRoleCDF3B7B3",
+        "Arn"
+       ]
+      }
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.CW.1/AutoEventRule/Resource"
+   }
+  },
+  "PCIPCIEC21EventsRuleRole0A1A07E1": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "events.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.EC2.1/EventsRuleRole/Resource"
+   }
+  },
+  "PCIPCIEC21EventsRuleRoleDefaultPolicy434C40E4": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "states:StartExecution",
+       "Effect": "Allow",
+       "Resource": {
+        "Ref": "SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "PCIPCIEC21EventsRuleRoleDefaultPolicy434C40E4",
+    "Roles": [
+     {
+      "Ref": "PCIPCIEC21EventsRuleRole0A1A07E1"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.EC2.1/EventsRuleRole/DefaultPolicy/Resource"
+   }
+  },
+  "PCIPCIEC21AutoEventRule66EBE5CF": {
+   "Type": "AWS::Events::Rule",
+   "Properties": {
+    "Description": "Remediate PCI PCI.EC2.1 automatic remediation trigger event rule.",
+    "EventPattern": {
+     "source": [
+      "aws.securityhub"
+     ],
+     "detail-type": [
+      "Security Hub Findings - Imported"
+     ],
+     "detail": {
+      "findings": {
+       "GeneratorId": [
+        "pci-dss/v/3.2.1/PCI.EC2.1"
+       ],
+       "Workflow": {
+        "Status": [
+         "NEW"
+        ]
+       },
+       "Compliance": {
+        "Status": [
+         "FAILED",
+         "WARNING"
+        ]
+       },
+       "RecordState": [
+        "ACTIVE"
+       ]
+      }
+     }
+    },
+    "Name": "PCI_PCI.EC2.1_AutoTrigger",
+    "State": {
+     "Ref": "PCIPCIEC21AutoTrigger"
+    },
+    "Targets": [
+     {
+      "Arn": {
+       "Ref": "SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter"
+      },
+      "Id": "Target0",
+      "RoleArn": {
+       "Fn::GetAtt": [
+        "PCIPCIEC21EventsRuleRole0A1A07E1",
+        "Arn"
+       ]
+      }
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.EC2.1/AutoEventRule/Resource"
+   }
+  },
+  "PCIPCIEC22EventsRuleRoleBEAF06BC": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "events.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.EC2.2/EventsRuleRole/Resource"
+   }
+  },
+  "PCIPCIEC22EventsRuleRoleDefaultPolicyBA7A95E1": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "states:StartExecution",
+       "Effect": "Allow",
+       "Resource": {
+        "Ref": "SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "PCIPCIEC22EventsRuleRoleDefaultPolicyBA7A95E1",
+    "Roles": [
+     {
+      "Ref": "PCIPCIEC22EventsRuleRoleBEAF06BC"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.EC2.2/EventsRuleRole/DefaultPolicy/Resource"
+   }
+  },
+  "PCIPCIEC22AutoEventRule73017026": {
+   "Type": "AWS::Events::Rule",
+   "Properties": {
+    "Description": "Remediate PCI PCI.EC2.2 automatic remediation trigger event rule.",
+    "EventPattern": {
+     "source": [
+      "aws.securityhub"
+     ],
+     "detail-type": [
+      "Security Hub Findings - Imported"
+     ],
+     "detail": {
+      "findings": {
+       "GeneratorId": [
+        "pci-dss/v/3.2.1/PCI.EC2.2"
+       ],
+       "Workflow": {
+        "Status": [
+         "NEW"
+        ]
+       },
+       "Compliance": {
+        "Status": [
+         "FAILED",
+         "WARNING"
+        ]
+       },
+       "RecordState": [
+        "ACTIVE"
+       ]
+      }
+     }
+    },
+    "Name": "PCI_PCI.EC2.2_AutoTrigger",
+    "State": {
+     "Ref": "PCIPCIEC22AutoTrigger"
+    },
+    "Targets": [
+     {
+      "Arn": {
+       "Ref": "SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter"
+      },
+      "Id": "Target0",
+      "RoleArn": {
+       "Fn::GetAtt": [
+        "PCIPCIEC22EventsRuleRoleBEAF06BC",
+        "Arn"
+       ]
+      }
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.EC2.2/AutoEventRule/Resource"
+   }
+  },
+  "PCIPCIEC25EventsRuleRoleBB3B824C": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "events.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.EC2.5/EventsRuleRole/Resource"
+   }
+  },
+  "PCIPCIEC25EventsRuleRoleDefaultPolicyAEFF5FEF": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "states:StartExecution",
+       "Effect": "Allow",
+       "Resource": {
+        "Ref": "SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "PCIPCIEC25EventsRuleRoleDefaultPolicyAEFF5FEF",
+    "Roles": [
+     {
+      "Ref": "PCIPCIEC25EventsRuleRoleBB3B824C"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.EC2.5/EventsRuleRole/DefaultPolicy/Resource"
+   }
+  },
+  "PCIPCIEC25AutoEventRule77DF615B": {
+   "Type": "AWS::Events::Rule",
+   "Properties": {
+    "Description": "Remediate PCI PCI.EC2.5 automatic remediation trigger event rule.",
+    "EventPattern": {
+     "source": [
+      "aws.securityhub"
+     ],
+     "detail-type": [
+      "Security Hub Findings - Imported"
+     ],
+     "detail": {
+      "findings": {
+       "GeneratorId": [
+        "pci-dss/v/3.2.1/PCI.EC2.5"
+       ],
+       "Workflow": {
+        "Status": [
+         "NEW"
+        ]
+       },
+       "Compliance": {
+        "Status": [
+         "FAILED",
+         "WARNING"
+        ]
+       },
+       "RecordState": [
+        "ACTIVE"
+       ]
+      }
+     }
+    },
+    "Name": "PCI_PCI.EC2.5_AutoTrigger",
+    "State": {
+     "Ref": "PCIPCIEC25AutoTrigger"
+    },
+    "Targets": [
+     {
+      "Arn": {
+       "Ref": "SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter"
+      },
+      "Id": "Target0",
+      "RoleArn": {
+       "Fn::GetAtt": [
+        "PCIPCIEC25EventsRuleRoleBB3B824C",
+        "Arn"
+       ]
+      }
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.EC2.5/AutoEventRule/Resource"
+   }
+  },
+  "PCIPCIIAM8EventsRuleRoleE8D97921": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "events.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.IAM.8/EventsRuleRole/Resource"
+   }
+  },
+  "PCIPCIIAM8EventsRuleRoleDefaultPolicy8C6970ED": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "states:StartExecution",
+       "Effect": "Allow",
+       "Resource": {
+        "Ref": "SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "PCIPCIIAM8EventsRuleRoleDefaultPolicy8C6970ED",
+    "Roles": [
+     {
+      "Ref": "PCIPCIIAM8EventsRuleRoleE8D97921"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.IAM.8/EventsRuleRole/DefaultPolicy/Resource"
+   }
+  },
+  "PCIPCIIAM8AutoEventRuleD053739F": {
+   "Type": "AWS::Events::Rule",
+   "Properties": {
+    "Description": "Remediate PCI PCI.IAM.8 automatic remediation trigger event rule.",
+    "EventPattern": {
+     "source": [
+      "aws.securityhub"
+     ],
+     "detail-type": [
+      "Security Hub Findings - Imported"
+     ],
+     "detail": {
+      "findings": {
+       "GeneratorId": [
+        "pci-dss/v/3.2.1/PCI.IAM.8"
+       ],
+       "Workflow": {
+        "Status": [
+         "NEW"
+        ]
+       },
+       "Compliance": {
+        "Status": [
+         "FAILED",
+         "WARNING"
+        ]
+       },
+       "RecordState": [
+        "ACTIVE"
+       ]
+      }
+     }
+    },
+    "Name": "PCI_PCI.IAM.8_AutoTrigger",
+    "State": {
+     "Ref": "PCIPCIIAM8AutoTrigger"
+    },
+    "Targets": [
+     {
+      "Arn": {
+       "Ref": "SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter"
+      },
+      "Id": "Target0",
+      "RoleArn": {
+       "Fn::GetAtt": [
+        "PCIPCIIAM8EventsRuleRoleE8D97921",
+        "Arn"
+       ]
+      }
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.IAM.8/AutoEventRule/Resource"
+   }
+  },
+  "PCIPCIKMS1EventsRuleRole85051178": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "events.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.KMS.1/EventsRuleRole/Resource"
+   }
+  },
+  "PCIPCIKMS1EventsRuleRoleDefaultPolicy8DE1C109": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "states:StartExecution",
+       "Effect": "Allow",
+       "Resource": {
+        "Ref": "SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "PCIPCIKMS1EventsRuleRoleDefaultPolicy8DE1C109",
+    "Roles": [
+     {
+      "Ref": "PCIPCIKMS1EventsRuleRole85051178"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.KMS.1/EventsRuleRole/DefaultPolicy/Resource"
+   }
+  },
+  "PCIPCIKMS1AutoEventRuleAA8E010B": {
+   "Type": "AWS::Events::Rule",
+   "Properties": {
+    "Description": "Remediate PCI PCI.KMS.1 automatic remediation trigger event rule.",
+    "EventPattern": {
+     "source": [
+      "aws.securityhub"
+     ],
+     "detail-type": [
+      "Security Hub Findings - Imported"
+     ],
+     "detail": {
+      "findings": {
+       "GeneratorId": [
+        "pci-dss/v/3.2.1/PCI.KMS.1"
+       ],
+       "Workflow": {
+        "Status": [
+         "NEW"
+        ]
+       },
+       "Compliance": {
+        "Status": [
+         "FAILED",
+         "WARNING"
+        ]
+       },
+       "RecordState": [
+        "ACTIVE"
+       ]
+      }
+     }
+    },
+    "Name": "PCI_PCI.KMS.1_AutoTrigger",
+    "State": {
+     "Ref": "PCIPCIKMS1AutoTrigger"
+    },
+    "Targets": [
+     {
+      "Arn": {
+       "Ref": "SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter"
+      },
+      "Id": "Target0",
+      "RoleArn": {
+       "Fn::GetAtt": [
+        "PCIPCIKMS1EventsRuleRole85051178",
+        "Arn"
+       ]
+      }
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.KMS.1/AutoEventRule/Resource"
+   }
+  },
+  "PCIPCILambda1EventsRuleRoleF3806D06": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "events.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.Lambda.1/EventsRuleRole/Resource"
+   }
+  },
+  "PCIPCILambda1EventsRuleRoleDefaultPolicy87EB1BA7": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "states:StartExecution",
+       "Effect": "Allow",
+       "Resource": {
+        "Ref": "SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "PCIPCILambda1EventsRuleRoleDefaultPolicy87EB1BA7",
+    "Roles": [
+     {
+      "Ref": "PCIPCILambda1EventsRuleRoleF3806D06"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.Lambda.1/EventsRuleRole/DefaultPolicy/Resource"
+   }
+  },
+  "PCIPCILambda1AutoEventRuleFC400001": {
+   "Type": "AWS::Events::Rule",
+   "Properties": {
+    "Description": "Remediate PCI PCI.Lambda.1 automatic remediation trigger event rule.",
+    "EventPattern": {
+     "source": [
+      "aws.securityhub"
+     ],
+     "detail-type": [
+      "Security Hub Findings - Imported"
+     ],
+     "detail": {
+      "findings": {
+       "GeneratorId": [
+        "pci-dss/v/3.2.1/PCI.Lambda.1"
+       ],
+       "Workflow": {
+        "Status": [
+         "NEW"
+        ]
+       },
+       "Compliance": {
+        "Status": [
+         "FAILED",
+         "WARNING"
+        ]
+       },
+       "RecordState": [
+        "ACTIVE"
+       ]
+      }
+     }
+    },
+    "Name": "PCI_PCI.Lambda.1_AutoTrigger",
+    "State": {
+     "Ref": "PCIPCILambda1AutoTrigger"
+    },
+    "Targets": [
+     {
+      "Arn": {
+       "Ref": "SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter"
+      },
+      "Id": "Target0",
+      "RoleArn": {
+       "Fn::GetAtt": [
+        "PCIPCILambda1EventsRuleRoleF3806D06",
+        "Arn"
+       ]
+      }
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.Lambda.1/AutoEventRule/Resource"
+   }
+  },
+  "PCIPCIRDS1EventsRuleRole63DBB3A0": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "events.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.RDS.1/EventsRuleRole/Resource"
+   }
+  },
+  "PCIPCIRDS1EventsRuleRoleDefaultPolicy019BE499": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "states:StartExecution",
+       "Effect": "Allow",
+       "Resource": {
+        "Ref": "SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "PCIPCIRDS1EventsRuleRoleDefaultPolicy019BE499",
+    "Roles": [
+     {
+      "Ref": "PCIPCIRDS1EventsRuleRole63DBB3A0"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.RDS.1/EventsRuleRole/DefaultPolicy/Resource"
+   }
+  },
+  "PCIPCIRDS1AutoEventRule70E80A7C": {
+   "Type": "AWS::Events::Rule",
+   "Properties": {
+    "Description": "Remediate PCI PCI.RDS.1 automatic remediation trigger event rule.",
+    "EventPattern": {
+     "source": [
+      "aws.securityhub"
+     ],
+     "detail-type": [
+      "Security Hub Findings - Imported"
+     ],
+     "detail": {
+      "findings": {
+       "GeneratorId": [
+        "pci-dss/v/3.2.1/PCI.RDS.1"
+       ],
+       "Workflow": {
+        "Status": [
+         "NEW"
+        ]
+       },
+       "Compliance": {
+        "Status": [
+         "FAILED",
+         "WARNING"
+        ]
+       },
+       "RecordState": [
+        "ACTIVE"
+       ]
+      }
+     }
+    },
+    "Name": "PCI_PCI.RDS.1_AutoTrigger",
+    "State": {
+     "Ref": "PCIPCIRDS1AutoTrigger"
+    },
+    "Targets": [
+     {
+      "Arn": {
+       "Ref": "SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter"
+      },
+      "Id": "Target0",
+      "RoleArn": {
+       "Fn::GetAtt": [
+        "PCIPCIRDS1EventsRuleRole63DBB3A0",
+        "Arn"
+       ]
+      }
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.RDS.1/AutoEventRule/Resource"
+   }
+  },
+  "PCIPCIRDS2EventsRuleRole4B71A822": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "events.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.RDS.2/EventsRuleRole/Resource"
+   }
+  },
+  "PCIPCIRDS2EventsRuleRoleDefaultPolicy48D19247": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "states:StartExecution",
+       "Effect": "Allow",
+       "Resource": {
+        "Ref": "SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "PCIPCIRDS2EventsRuleRoleDefaultPolicy48D19247",
+    "Roles": [
+     {
+      "Ref": "PCIPCIRDS2EventsRuleRole4B71A822"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.RDS.2/EventsRuleRole/DefaultPolicy/Resource"
+   }
+  },
+  "PCIPCIRDS2AutoEventRule6D3F77A0": {
+   "Type": "AWS::Events::Rule",
+   "Properties": {
+    "Description": "Remediate PCI PCI.RDS.2 automatic remediation trigger event rule.",
+    "EventPattern": {
+     "source": [
+      "aws.securityhub"
+     ],
+     "detail-type": [
+      "Security Hub Findings - Imported"
+     ],
+     "detail": {
+      "findings": {
+       "GeneratorId": [
+        "pci-dss/v/3.2.1/PCI.RDS.2"
+       ],
+       "Workflow": {
+        "Status": [
+         "NEW"
+        ]
+       },
+       "Compliance": {
+        "Status": [
+         "FAILED",
+         "WARNING"
+        ]
+       },
+       "RecordState": [
+        "ACTIVE"
+       ]
+      }
+     }
+    },
+    "Name": "PCI_PCI.RDS.2_AutoTrigger",
+    "State": {
+     "Ref": "PCIPCIRDS2AutoTrigger"
+    },
+    "Targets": [
+     {
+      "Arn": {
+       "Ref": "SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter"
+      },
+      "Id": "Target0",
+      "RoleArn": {
+       "Fn::GetAtt": [
+        "PCIPCIRDS2EventsRuleRole4B71A822",
+        "Arn"
+       ]
+      }
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.RDS.2/AutoEventRule/Resource"
+   }
+  },
+  "PCIPCIRedshift1EventsRuleRole273D1EBA": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "events.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.Redshift.1/EventsRuleRole/Resource"
+   }
+  },
+  "PCIPCIRedshift1EventsRuleRoleDefaultPolicyDA5EA44E": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "states:StartExecution",
+       "Effect": "Allow",
+       "Resource": {
+        "Ref": "SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "PCIPCIRedshift1EventsRuleRoleDefaultPolicyDA5EA44E",
+    "Roles": [
+     {
+      "Ref": "PCIPCIRedshift1EventsRuleRole273D1EBA"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.Redshift.1/EventsRuleRole/DefaultPolicy/Resource"
+   }
+  },
+  "PCIPCIRedshift1AutoEventRule04AE6246": {
+   "Type": "AWS::Events::Rule",
+   "Properties": {
+    "Description": "Remediate PCI PCI.Redshift.1 automatic remediation trigger event rule.",
+    "EventPattern": {
+     "source": [
+      "aws.securityhub"
+     ],
+     "detail-type": [
+      "Security Hub Findings - Imported"
+     ],
+     "detail": {
+      "findings": {
+       "GeneratorId": [
+        "pci-dss/v/3.2.1/PCI.Redshift.1"
+       ],
+       "Workflow": {
+        "Status": [
+         "NEW"
+        ]
+       },
+       "Compliance": {
+        "Status": [
+         "FAILED",
+         "WARNING"
+        ]
+       },
+       "RecordState": [
+        "ACTIVE"
+       ]
+      }
+     }
+    },
+    "Name": "PCI_PCI.Redshift.1_AutoTrigger",
+    "State": {
+     "Ref": "PCIPCIRedshift1AutoTrigger"
+    },
+    "Targets": [
+     {
+      "Arn": {
+       "Ref": "SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter"
+      },
+      "Id": "Target0",
+      "RoleArn": {
+       "Fn::GetAtt": [
+        "PCIPCIRedshift1EventsRuleRole273D1EBA",
+        "Arn"
+       ]
+      }
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.Redshift.1/AutoEventRule/Resource"
+   }
+  },
+  "PCIPCICloudTrail1EventsRuleRole2F613636": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "events.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.CloudTrail.1/EventsRuleRole/Resource"
+   }
+  },
+  "PCIPCICloudTrail1EventsRuleRoleDefaultPolicyE16C5409": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "states:StartExecution",
+       "Effect": "Allow",
+       "Resource": {
+        "Ref": "SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "PCIPCICloudTrail1EventsRuleRoleDefaultPolicyE16C5409",
+    "Roles": [
+     {
+      "Ref": "PCIPCICloudTrail1EventsRuleRole2F613636"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.CloudTrail.1/EventsRuleRole/DefaultPolicy/Resource"
+   }
+  },
+  "PCIPCICloudTrail1AutoEventRule09443DA3": {
+   "Type": "AWS::Events::Rule",
+   "Properties": {
+    "Description": "Remediate PCI PCI.CloudTrail.1 automatic remediation trigger event rule.",
+    "EventPattern": {
+     "source": [
+      "aws.securityhub"
+     ],
+     "detail-type": [
+      "Security Hub Findings - Imported"
+     ],
+     "detail": {
+      "findings": {
+       "GeneratorId": [
+        "pci-dss/v/3.2.1/PCI.CloudTrail.1"
+       ],
+       "Workflow": {
+        "Status": [
+         "NEW"
+        ]
+       },
+       "Compliance": {
+        "Status": [
+         "FAILED",
+         "WARNING"
+        ]
+       },
+       "RecordState": [
+        "ACTIVE"
+       ]
+      }
+     }
+    },
+    "Name": "PCI_PCI.CloudTrail.1_AutoTrigger",
+    "State": {
+     "Ref": "PCIPCICloudTrail1AutoTrigger"
+    },
+    "Targets": [
+     {
+      "Arn": {
+       "Ref": "SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter"
+      },
+      "Id": "Target0",
+      "RoleArn": {
+       "Fn::GetAtt": [
+        "PCIPCICloudTrail1EventsRuleRole2F613636",
+        "Arn"
+       ]
+      }
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.CloudTrail.1/AutoEventRule/Resource"
+   }
+  },
+  "PCIPCIEC26EventsRuleRole8A61F75E": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "events.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.EC2.6/EventsRuleRole/Resource"
+   }
+  },
+  "PCIPCIEC26EventsRuleRoleDefaultPolicy22C238AF": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "states:StartExecution",
+       "Effect": "Allow",
+       "Resource": {
+        "Ref": "SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "PCIPCIEC26EventsRuleRoleDefaultPolicy22C238AF",
+    "Roles": [
+     {
+      "Ref": "PCIPCIEC26EventsRuleRole8A61F75E"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.EC2.6/EventsRuleRole/DefaultPolicy/Resource"
+   }
+  },
+  "PCIPCIEC26AutoEventRule084B7A4B": {
+   "Type": "AWS::Events::Rule",
+   "Properties": {
+    "Description": "Remediate PCI PCI.EC2.6 automatic remediation trigger event rule.",
+    "EventPattern": {
+     "source": [
+      "aws.securityhub"
+     ],
+     "detail-type": [
+      "Security Hub Findings - Imported"
+     ],
+     "detail": {
+      "findings": {
+       "GeneratorId": [
+        "pci-dss/v/3.2.1/PCI.EC2.6"
+       ],
+       "Workflow": {
+        "Status": [
+         "NEW"
+        ]
+       },
+       "Compliance": {
+        "Status": [
+         "FAILED",
+         "WARNING"
+        ]
+       },
+       "RecordState": [
+        "ACTIVE"
+       ]
+      }
+     }
+    },
+    "Name": "PCI_PCI.EC2.6_AutoTrigger",
+    "State": {
+     "Ref": "PCIPCIEC26AutoTrigger"
+    },
+    "Targets": [
+     {
+      "Arn": {
+       "Ref": "SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter"
+      },
+      "Id": "Target0",
+      "RoleArn": {
+       "Fn::GetAtt": [
+        "PCIPCIEC26EventsRuleRole8A61F75E",
+        "Arn"
+       ]
+      }
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.EC2.6/AutoEventRule/Resource"
+   }
+  },
+  "PCIPCICloudTrail3EventsRuleRoleBA9CD6EB": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "events.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.CloudTrail.3/EventsRuleRole/Resource"
+   }
+  },
+  "PCIPCICloudTrail3EventsRuleRoleDefaultPolicy896C0CFB": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "states:StartExecution",
+       "Effect": "Allow",
+       "Resource": {
+        "Ref": "SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "PCIPCICloudTrail3EventsRuleRoleDefaultPolicy896C0CFB",
+    "Roles": [
+     {
+      "Ref": "PCIPCICloudTrail3EventsRuleRoleBA9CD6EB"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.CloudTrail.3/EventsRuleRole/DefaultPolicy/Resource"
+   }
+  },
+  "PCIPCICloudTrail3AutoEventRuleE381C8D6": {
+   "Type": "AWS::Events::Rule",
+   "Properties": {
+    "Description": "Remediate PCI PCI.CloudTrail.3 automatic remediation trigger event rule.",
+    "EventPattern": {
+     "source": [
+      "aws.securityhub"
+     ],
+     "detail-type": [
+      "Security Hub Findings - Imported"
+     ],
+     "detail": {
+      "findings": {
+       "GeneratorId": [
+        "pci-dss/v/3.2.1/PCI.CloudTrail.3"
+       ],
+       "Workflow": {
+        "Status": [
+         "NEW"
+        ]
+       },
+       "Compliance": {
+        "Status": [
+         "FAILED",
+         "WARNING"
+        ]
+       },
+       "RecordState": [
+        "ACTIVE"
+       ]
+      }
+     }
+    },
+    "Name": "PCI_PCI.CloudTrail.3_AutoTrigger",
+    "State": {
+     "Ref": "PCIPCICloudTrail3AutoTrigger"
+    },
+    "Targets": [
+     {
+      "Arn": {
+       "Ref": "SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter"
+      },
+      "Id": "Target0",
+      "RoleArn": {
+       "Fn::GetAtt": [
+        "PCIPCICloudTrail3EventsRuleRoleBA9CD6EB",
+        "Arn"
+       ]
+      }
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.CloudTrail.3/AutoEventRule/Resource"
+   }
+  },
+  "PCIPCICloudTrail4EventsRuleRole9B912CAB": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "events.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.CloudTrail.4/EventsRuleRole/Resource"
+   }
+  },
+  "PCIPCICloudTrail4EventsRuleRoleDefaultPolicyE8F69936": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "states:StartExecution",
+       "Effect": "Allow",
+       "Resource": {
+        "Ref": "SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "PCIPCICloudTrail4EventsRuleRoleDefaultPolicyE8F69936",
+    "Roles": [
+     {
+      "Ref": "PCIPCICloudTrail4EventsRuleRole9B912CAB"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.CloudTrail.4/EventsRuleRole/DefaultPolicy/Resource"
+   }
+  },
+  "PCIPCICloudTrail4AutoEventRuleADE5013D": {
+   "Type": "AWS::Events::Rule",
+   "Properties": {
+    "Description": "Remediate PCI PCI.CloudTrail.4 automatic remediation trigger event rule.",
+    "EventPattern": {
+     "source": [
+      "aws.securityhub"
+     ],
+     "detail-type": [
+      "Security Hub Findings - Imported"
+     ],
+     "detail": {
+      "findings": {
+       "GeneratorId": [
+        "pci-dss/v/3.2.1/PCI.CloudTrail.4"
+       ],
+       "Workflow": {
+        "Status": [
+         "NEW"
+        ]
+       },
+       "Compliance": {
+        "Status": [
+         "FAILED",
+         "WARNING"
+        ]
+       },
+       "RecordState": [
+        "ACTIVE"
+       ]
+      }
+     }
+    },
+    "Name": "PCI_PCI.CloudTrail.4_AutoTrigger",
+    "State": {
+     "Ref": "PCIPCICloudTrail4AutoTrigger"
+    },
+    "Targets": [
+     {
+      "Arn": {
+       "Ref": "SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter"
+      },
+      "Id": "Target0",
+      "RoleArn": {
+       "Fn::GetAtt": [
+        "PCIPCICloudTrail4EventsRuleRole9B912CAB",
+        "Arn"
+       ]
+      }
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.CloudTrail.4/AutoEventRule/Resource"
+   }
+  },
+  "PCIPCIConfig1EventsRuleRole3094B93D": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "events.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.Config.1/EventsRuleRole/Resource"
+   }
+  },
+  "PCIPCIConfig1EventsRuleRoleDefaultPolicy6D97B53B": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "states:StartExecution",
+       "Effect": "Allow",
+       "Resource": {
+        "Ref": "SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "PCIPCIConfig1EventsRuleRoleDefaultPolicy6D97B53B",
+    "Roles": [
+     {
+      "Ref": "PCIPCIConfig1EventsRuleRole3094B93D"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.Config.1/EventsRuleRole/DefaultPolicy/Resource"
+   }
+  },
+  "PCIPCIConfig1AutoEventRule53ECC274": {
+   "Type": "AWS::Events::Rule",
+   "Properties": {
+    "Description": "Remediate PCI PCI.Config.1 automatic remediation trigger event rule.",
+    "EventPattern": {
+     "source": [
+      "aws.securityhub"
+     ],
+     "detail-type": [
+      "Security Hub Findings - Imported"
+     ],
+     "detail": {
+      "findings": {
+       "GeneratorId": [
+        "pci-dss/v/3.2.1/PCI.Config.1"
+       ],
+       "Workflow": {
+        "Status": [
+         "NEW"
+        ]
+       },
+       "Compliance": {
+        "Status": [
+         "FAILED",
+         "WARNING"
+        ]
+       },
+       "RecordState": [
+        "ACTIVE"
+       ]
+      }
+     }
+    },
+    "Name": "PCI_PCI.Config.1_AutoTrigger",
+    "State": {
+     "Ref": "PCIPCIConfig1AutoTrigger"
+    },
+    "Targets": [
+     {
+      "Arn": {
+       "Ref": "SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter"
+      },
+      "Id": "Target0",
+      "RoleArn": {
+       "Fn::GetAtt": [
+        "PCIPCIConfig1EventsRuleRole3094B93D",
+        "Arn"
+       ]
+      }
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.Config.1/AutoEventRule/Resource"
+   }
+  },
+  "PCIPCIS31EventsRuleRole745FFB7B": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "events.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.S3.1/EventsRuleRole/Resource"
+   }
+  },
+  "PCIPCIS31EventsRuleRoleDefaultPolicyDE1B5017": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "states:StartExecution",
+       "Effect": "Allow",
+       "Resource": {
+        "Ref": "SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "PCIPCIS31EventsRuleRoleDefaultPolicyDE1B5017",
+    "Roles": [
+     {
+      "Ref": "PCIPCIS31EventsRuleRole745FFB7B"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.S3.1/EventsRuleRole/DefaultPolicy/Resource"
+   }
+  },
+  "PCIPCIS31AutoEventRule6A73EB21": {
+   "Type": "AWS::Events::Rule",
+   "Properties": {
+    "Description": "Remediate PCI PCI.S3.1 automatic remediation trigger event rule.",
+    "EventPattern": {
+     "source": [
+      "aws.securityhub"
+     ],
+     "detail-type": [
+      "Security Hub Findings - Imported"
+     ],
+     "detail": {
+      "findings": {
+       "GeneratorId": [
+        "pci-dss/v/3.2.1/PCI.S3.1"
+       ],
+       "Workflow": {
+        "Status": [
+         "NEW"
+        ]
+       },
+       "Compliance": {
+        "Status": [
+         "FAILED",
+         "WARNING"
+        ]
+       },
+       "RecordState": [
+        "ACTIVE"
+       ]
+      }
+     }
+    },
+    "Name": "PCI_PCI.S3.1_AutoTrigger",
+    "State": {
+     "Ref": "PCIPCIS31AutoTrigger"
+    },
+    "Targets": [
+     {
+      "Arn": {
+       "Ref": "SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter"
+      },
+      "Id": "Target0",
+      "RoleArn": {
+       "Fn::GetAtt": [
+        "PCIPCIS31EventsRuleRole745FFB7B",
+        "Arn"
+       ]
+      }
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.S3.1/AutoEventRule/Resource"
+   }
+  },
+  "RemapPCIPCIS32700115AD": {
+   "Type": "AWS::SSM::Parameter",
+   "Properties": {
+    "Type": "String",
+    "Value": "PCI.S3.1",
+    "Description": "Remap the PCI PCI.S3.2 finding to PCI PCI.S3.1 remediation",
+    "Name": "/Solutions/SO0111/PCI/3.2.1/PCI.S3.2/remap"
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/Remap PCI PCI.S3.2/Resource"
+   }
+  },
+  "PCIPCIS32EventsRuleRoleC3F2E531": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "events.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.S3.2/EventsRuleRole/Resource"
+   }
+  },
+  "PCIPCIS32EventsRuleRoleDefaultPolicyFC1F13D2": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "states:StartExecution",
+       "Effect": "Allow",
+       "Resource": {
+        "Ref": "SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "PCIPCIS32EventsRuleRoleDefaultPolicyFC1F13D2",
+    "Roles": [
+     {
+      "Ref": "PCIPCIS32EventsRuleRoleC3F2E531"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.S3.2/EventsRuleRole/DefaultPolicy/Resource"
+   }
+  },
+  "PCIPCIS32AutoEventRule5A9295F6": {
+   "Type": "AWS::Events::Rule",
+   "Properties": {
+    "Description": "Remediate PCI PCI.S3.2 automatic remediation trigger event rule.",
+    "EventPattern": {
+     "source": [
+      "aws.securityhub"
+     ],
+     "detail-type": [
+      "Security Hub Findings - Imported"
+     ],
+     "detail": {
+      "findings": {
+       "GeneratorId": [
+        "pci-dss/v/3.2.1/PCI.S3.2"
+       ],
+       "Workflow": {
+        "Status": [
+         "NEW"
+        ]
+       },
+       "Compliance": {
+        "Status": [
+         "FAILED",
+         "WARNING"
+        ]
+       },
+       "RecordState": [
+        "ACTIVE"
+       ]
+      }
+     }
+    },
+    "Name": "PCI_PCI.S3.2_AutoTrigger",
+    "State": {
+     "Ref": "PCIPCIS32AutoTrigger"
+    },
+    "Targets": [
+     {
+      "Arn": {
+       "Ref": "SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter"
+      },
+      "Id": "Target0",
+      "RoleArn": {
+       "Fn::GetAtt": [
+        "PCIPCIS32EventsRuleRoleC3F2E531",
+        "Arn"
+       ]
+      }
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.S3.2/AutoEventRule/Resource"
+   }
+  },
+  "PCIPCIS34EventsRuleRoleA4F17A28": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "events.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.S3.4/EventsRuleRole/Resource"
+   }
+  },
+  "PCIPCIS34EventsRuleRoleDefaultPolicyF2607034": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "states:StartExecution",
+       "Effect": "Allow",
+       "Resource": {
+        "Ref": "SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "PCIPCIS34EventsRuleRoleDefaultPolicyF2607034",
+    "Roles": [
+     {
+      "Ref": "PCIPCIS34EventsRuleRoleA4F17A28"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.S3.4/EventsRuleRole/DefaultPolicy/Resource"
+   }
+  },
+  "PCIPCIS34AutoEventRule6B0E6968": {
+   "Type": "AWS::Events::Rule",
+   "Properties": {
+    "Description": "Remediate PCI PCI.S3.4 automatic remediation trigger event rule.",
+    "EventPattern": {
+     "source": [
+      "aws.securityhub"
+     ],
+     "detail-type": [
+      "Security Hub Findings - Imported"
+     ],
+     "detail": {
+      "findings": {
+       "GeneratorId": [
+        "pci-dss/v/3.2.1/PCI.S3.4"
+       ],
+       "Workflow": {
+        "Status": [
+         "NEW"
+        ]
+       },
+       "Compliance": {
+        "Status": [
+         "FAILED",
+         "WARNING"
+        ]
+       },
+       "RecordState": [
+        "ACTIVE"
+       ]
+      }
+     }
+    },
+    "Name": "PCI_PCI.S3.4_AutoTrigger",
+    "State": {
+     "Ref": "PCIPCIS34AutoTrigger"
+    },
+    "Targets": [
+     {
+      "Arn": {
+       "Ref": "SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter"
+      },
+      "Id": "Target0",
+      "RoleArn": {
+       "Fn::GetAtt": [
+        "PCIPCIS34EventsRuleRoleA4F17A28",
+        "Arn"
+       ]
+      }
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.S3.4/AutoEventRule/Resource"
+   }
+  },
+  "PCIPCIS35EventsRuleRoleDC64F693": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "events.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.S3.5/EventsRuleRole/Resource"
+   }
+  },
+  "PCIPCIS35EventsRuleRoleDefaultPolicy6EC0E1AD": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "states:StartExecution",
+       "Effect": "Allow",
+       "Resource": {
+        "Ref": "SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "PCIPCIS35EventsRuleRoleDefaultPolicy6EC0E1AD",
+    "Roles": [
+     {
+      "Ref": "PCIPCIS35EventsRuleRoleDC64F693"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.S3.5/EventsRuleRole/DefaultPolicy/Resource"
+   }
+  },
+  "PCIPCIS35AutoEventRule147E00EA": {
+   "Type": "AWS::Events::Rule",
+   "Properties": {
+    "Description": "Remediate PCI PCI.S3.5 automatic remediation trigger event rule.",
+    "EventPattern": {
+     "source": [
+      "aws.securityhub"
+     ],
+     "detail-type": [
+      "Security Hub Findings - Imported"
+     ],
+     "detail": {
+      "findings": {
+       "GeneratorId": [
+        "pci-dss/v/3.2.1/PCI.S3.5"
+       ],
+       "Workflow": {
+        "Status": [
+         "NEW"
+        ]
+       },
+       "Compliance": {
+        "Status": [
+         "FAILED",
+         "WARNING"
+        ]
+       },
+       "RecordState": [
+        "ACTIVE"
+       ]
+      }
+     }
+    },
+    "Name": "PCI_PCI.S3.5_AutoTrigger",
+    "State": {
+     "Ref": "PCIPCIS35AutoTrigger"
+    },
+    "Targets": [
+     {
+      "Arn": {
+       "Ref": "SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter"
+      },
+      "Id": "Target0",
+      "RoleArn": {
+       "Fn::GetAtt": [
+        "PCIPCIS35EventsRuleRoleDC64F693",
+        "Arn"
+       ]
+      }
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.S3.5/AutoEventRule/Resource"
+   }
+  },
+  "PCIPCIS36EventsRuleRole2CF53417": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "events.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.S3.6/EventsRuleRole/Resource"
+   }
+  },
+  "PCIPCIS36EventsRuleRoleDefaultPolicy64C70C16": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "states:StartExecution",
+       "Effect": "Allow",
+       "Resource": {
+        "Ref": "SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "PCIPCIS36EventsRuleRoleDefaultPolicy64C70C16",
+    "Roles": [
+     {
+      "Ref": "PCIPCIS36EventsRuleRole2CF53417"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.S3.6/EventsRuleRole/DefaultPolicy/Resource"
+   }
+  },
+  "PCIPCIS36AutoEventRule0D696C3D": {
+   "Type": "AWS::Events::Rule",
+   "Properties": {
+    "Description": "Remediate PCI PCI.S3.6 automatic remediation trigger event rule.",
+    "EventPattern": {
+     "source": [
+      "aws.securityhub"
+     ],
+     "detail-type": [
+      "Security Hub Findings - Imported"
+     ],
+     "detail": {
+      "findings": {
+       "GeneratorId": [
+        "pci-dss/v/3.2.1/PCI.S3.6"
+       ],
+       "Workflow": {
+        "Status": [
+         "NEW"
+        ]
+       },
+       "Compliance": {
+        "Status": [
+         "FAILED",
+         "WARNING"
+        ]
+       },
+       "RecordState": [
+        "ACTIVE"
+       ]
+      }
+     }
+    },
+    "Name": "PCI_PCI.S3.6_AutoTrigger",
+    "State": {
+     "Ref": "PCIPCIS36AutoTrigger"
+    },
+    "Targets": [
+     {
+      "Arn": {
+       "Ref": "SsmParameterValueSolutionsSO0111OrchestratorArnC96584B6F00A464EAD1953AFF4B05118Parameter"
+      },
+      "Id": "Target0",
+      "RoleArn": {
+       "Fn::GetAtt": [
+        "PCIPCIS36EventsRuleRole2CF53417",
+        "Arn"
+       ]
+      }
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PCI321Stack/PCI PCI.S3.6/AutoEventRule/Resource"
+   }
+  }
+ },
+ "Mappings": {
+  "SourceCode": {
+   "General": {
+    "S3Bucket": "sechubrem-627699228322-reference",
+    "KeyPrefix": "aws-security-hub-automated-response-and-remediation/v1.50.mybuild"
+   }
+  }
+ }
+}
